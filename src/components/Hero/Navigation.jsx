@@ -1,13 +1,18 @@
 import { Link } from "react-router-dom";
 
-export const Hero = () => {
+export const Navigation = () => {
   return (
-    <section className="mb-3" id="hero" style={{ position: "relative" }}>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <>
+      <nav
+        className="navbar navbar-expand-lg bg-body-tertiary"
+        style={{ zIndex: "3" }}
+      >
         <div className="container">
-          <a className="navbar-brand" href="#">
-            <span className="logo" />
-          </a>
+          <Link to={"/"}>
+            <a className="navbar-brand" href="">
+              <span className="logo" />
+            </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -28,13 +33,13 @@ export const Hero = () => {
                 <a
                   className="nav-link active"
                   aria-current="page"
-                  href="#feature"
+                  href="/#feature"
                 >
                   Our Services
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#why-us">
+                <a className="nav-link" href="/#why-us">
                   Why Us
                 </a>
               </li>
@@ -52,36 +57,6 @@ export const Hero = () => {
           </div>
         </div>
       </nav>
-      <div className="container hero-content">
-        <div className="row g-0">
-          <div className="col-sm-12 col-lg-6">
-            <div className="row">
-              <div className="col-lg-10 hero-text">
-                <h1>Sewa &amp; Rental Mobil Terbaik di kawasan (Lokasimu)</h1>
-                <p>
-                  Selamat datang di Binar Car Rental. Kami menyediakan mobil
-                  kualitas terbaik dengan harga terjangkau. Selalu siap melayani
-                  kebutuhanmu untuk sewa mobil selama 24 jam.
-                </p>
-                <Link to="/search">
-                  <button className="btn btn-success" type="button">
-                    Mulai Sewa Mobil
-                  </button>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="col-sm-12 col-lg-6">
-            <div className="hero-image">
-              <img
-                src="./assets/img/img_car.png"
-                className="img-fluid object-fit-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div
         className="offcanvas offcanvas-end"
         tabIndex={-1}
@@ -110,6 +85,6 @@ export const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
+    </>
   );
 };
