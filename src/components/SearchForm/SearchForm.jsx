@@ -32,7 +32,7 @@ export const SearchForm = ({
   statusValue = "",
   buttonType = "",
 }) => {
-  const [name, setName] = useState("");
+  const [name, setName] = useState(nameValue);
   const [category, setCategory] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
@@ -79,6 +79,7 @@ export const SearchForm = ({
                 <Form.Control
                   type="text"
                   defaultValue={nameValue}
+                  value={name}
                   placeholder="Ketik nama / tipe mobil"
                   className="search-input"
                   onChange={(e) => setName(e.target.value)}

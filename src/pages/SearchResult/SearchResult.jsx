@@ -10,24 +10,25 @@ const SearchResult = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [cars, setCars] = useState([]);
 
+  const fetchData = async () => {
+    const { data } = await axios.get(
+      `https://bootcamp-rent-cars.herokuapp.com/customer/v2/car`,
+      {
+        params: {
+          name: searchParams.get("name"),
+          category: searchParams.get("category"),
+          minPrice: searchParams.get("minPrice"),
+          maxPrice: searchParams.get("maxPrice"),
+          isRented: searchParams.get("isRented"),
+        },
+      }
+    );
+    setCars(data.cars);
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      const { data } = await axios.get(
-        `https://bootcamp-rent-cars.herokuapp.com/customer/v2/car`,
-        {
-          params: {
-            name: searchParams.get("name"),
-            category: searchParams.get("category"),
-            minPrice: searchParams.get("minPrice"),
-            maxPrice: searchParams.get("maxPrice"),
-            isRented: searchParams.get("isRented"),
-          },
-        }
-      );
-      setCars(data.cars);
-    };
     fetchData();
-  }, [cars]);
+  }, []);
+  console.log("render");
 
   return (
     <div>
@@ -40,6 +41,11 @@ const SearchResult = () => {
         statusValue={searchParams.get("isRented")}
         buttonType="edit"
       />
+      <div>
+        <button type="button" onClick={() => fetchData()}>
+          edit
+        </button>
+      </div>
       <Container className="mt-5">
         <Row lg={3}>
           {cars.map((car) => {
