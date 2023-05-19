@@ -46,6 +46,8 @@ export const SearchForm = ({
     fetchCar(name, category, minPrice, maxPrice, status);
   };
 
+  const withSerchButton = true;
+
   return (
     <Container className="container-search-form py-3 position-relative mb-5 search-form">
       <Card
@@ -151,8 +153,10 @@ export const SearchForm = ({
             <Col lg={2} sm={12}>
               {buttonType === "edit" ? (
                 <CustomButton text="Edit" variant="edit" type="submit" />
-              ) : (
+              ) : <withSerchButton /> ? (
                 <CustomButton text="Cari Mobil" type="submit" />
+              ) : (
+                <></>
               )}
             </Col>
           </Row>

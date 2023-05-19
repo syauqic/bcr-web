@@ -29,7 +29,7 @@ const SearchResult = () => {
   useEffect(() => {
     // console.log("use effect trigger");
     fetchData();
-  }, [cars]);
+  }, [searchParams]);
   // console.log("render");
 
   return (
@@ -47,6 +47,7 @@ const SearchResult = () => {
         minPriceValue={parseInt(searchParams.get("minPrice"))}
         maxPriceValue={parseInt(searchParams.get("maxPrice"))}
         buttonType="edit"
+        withSerchButton={false}
       />
       <Container className="mt-5 mb-3">
         <Row lg={3} sm={1} md={2} className="">
