@@ -1,10 +1,11 @@
-import { Row, Col, Card, Container, Button } from "react-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
 import { Navigation } from "../../components/Hero/Navigation";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { Backdrop, SearchForm } from "../../components";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { CarCard } from "./CarCard";
+import { Footer } from "../../components/Footer/Footer";
 
 const SearchResult = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -26,28 +27,29 @@ const SearchResult = () => {
     setCars(data.cars);
   };
   useEffect(() => {
+    // console.log("use effect trigger");
     fetchData();
-  }, []);
-  console.log("render");
+  }, [cars]);
+  // console.log("render");
 
   return (
     <div>
       <Backdrop triggerClass="search-input" />
-      <Navigation />
-      <Container fluid style={{ height: "30vh", background: "#F1F3FF" }} />
+      {/* <Hero withHeroContent={false} /> */}
+      <Container fluid style={{ height: "30vh", background: "#F1F3FF" }}>
+        <Navigation />
+      </Container>
       <SearchForm
         nameValue={searchParams.get("name")}
         categoryValue={searchParams.get("category")}
         statusValue={searchParams.get("isRented")}
+        // priceValue={searchParams.get("price")}
+        minPriceValue={parseInt(searchParams.get("minPrice"))}
+        maxPriceValue={parseInt(searchParams.get("maxPrice"))}
         buttonType="edit"
       />
-      <div>
-        <button type="button" onClick={() => fetchData()}>
-          edit
-        </button>
-      </div>
-      <Container className="mt-5">
-        <Row lg={3}>
+      <Container className="mt-5 mb-3">
+        <Row lg={3} sm={1} md={2} className="">
           {cars.map((car) => {
             return (
               <Col key={car.id}>
@@ -57,6 +59,7 @@ const SearchResult = () => {
           })}
         </Row>
       </Container>
+      <Footer />
     </div>
   );
 };

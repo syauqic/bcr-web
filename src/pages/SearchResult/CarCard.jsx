@@ -3,6 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 export const CarCard = ({ car }) => {
   const navigate = useNavigate();
+  const formatter = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    maximumFractionDigits: 0, // -> belakang koma
+  });
 
   const selectCar = (car) => {
     navigate(`/detail-car/${car.id}`, {
@@ -12,11 +17,11 @@ export const CarCard = ({ car }) => {
     });
   };
   return (
-    <Card>
-      <Card.Img src={car.image}></Card.Img>
+    <Card className="mb-3">
+      <Card.Img className="p-3" src={car.image}></Card.Img>
       <Card.Body>
         <Card.Title>{car.name}</Card.Title>
-        <Card.Title>{car.price}</Card.Title>
+        <Card.Title>{formatter.format(car.price)} / hari</Card.Title>
         <Card.Text>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}

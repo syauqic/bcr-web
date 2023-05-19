@@ -5,7 +5,7 @@ export const Navigation = () => {
     <>
       <nav
         className="navbar navbar-expand-lg bg-body-tertiary"
-        style={{ zIndex: "3" }}
+        style={{ zIndex: "3", backgroundColor: "rgba(0,0,0,0)" }}
       >
         <div className="container">
           <Link to={"/"}>
