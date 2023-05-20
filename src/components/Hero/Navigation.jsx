@@ -31,7 +31,7 @@ export const Navigation = () => {
             <ul className="navbar-nav">
               <li className="nav-item">
                 <a
-                  className="nav-link active"
+                  className="nav-link"
                   aria-current="page"
                   href="/#feature"
                 >

@@ -1,4 +1,4 @@
-import { Row, Col, Card, Container, Button } from "react-bootstrap";
+import { Row, Col, Card, Container } from "react-bootstrap";
 import { Navigation } from "../../components/Hero/Navigation";
 import { useLocation } from "react-router-dom";
 import { SearchForm } from "../../components";
@@ -6,7 +6,7 @@ import { Footer } from "../../components/Footer/Footer";
 
 const DetailCar = () => {
   const location = useLocation();
-  const { car } = location.state;
+  const { car, minPrice, maxPrice, name, category, status } = location.state;
   const formatter = new Intl.NumberFormat("id-ID", {
     style: "currency",
     currency: "IDR",
@@ -17,7 +17,15 @@ const DetailCar = () => {
       <Container fluid style={{ height: "30vh", background: "#F1F3FF" }}>
         <Navigation />
       </Container>
-      <SearchForm isDisabled={true} />
+      <SearchForm
+        isDisabled={true}
+        cardTitle="Pencarianmu"
+        nameValue={name}
+        categoryValue={category}
+        statusValue={status}
+        minPriceValue={minPrice}
+        maxPriceValue={maxPrice}
+      />
       <Container className="mt-5 mb-3">
         <Row>
           <Col className="col-8">

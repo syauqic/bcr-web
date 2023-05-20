@@ -44,17 +44,34 @@ const SearchResult = () => {
         categoryValue={searchParams.get("category")}
         statusValue={searchParams.get("isRented")}
         // priceValue={searchParams.get("price")}
-        minPriceValue={parseInt(searchParams.get("minPrice"))}
-        maxPriceValue={parseInt(searchParams.get("maxPrice"))}
+        minPriceValue={
+          searchParams.get("minPrice") && parseInt(searchParams.get("minPrice"))
+        }
+        maxPriceValue={
+          searchParams.get("maxPrice") && parseInt(searchParams.get("maxPrice"))
+        }
         buttonType="edit"
-        withSerchButton={false}
+        cardTitle="Pencarianmu"
       />
       <Container className="mt-5 mb-3">
         <Row lg={3} sm={1} md={2} className="">
           {cars.map((car) => {
             return (
               <Col key={car.id}>
-                <CarCard car={car} />
+                <CarCard
+                  car={car}
+                  minPrice={
+                    searchParams.get("minPrice") &&
+                    parseInt(searchParams.get("minPrice"))
+                  }
+                  maxPrice={
+                    searchParams.get("maxPrice") &&
+                    parseInt(searchParams.get("maxPrice"))
+                  }
+                  name={searchParams.get("name")}
+                  category={searchParams.get("category")}
+                  status={searchParams.get("isRented")}
+                />
               </Col>
             );
           })}

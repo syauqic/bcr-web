@@ -11,7 +11,7 @@ export const FAQ = () => {
           </div>
           <div className="col-lg-6 col-sm-12">
             <div className="accordion" id="accordionExample">
-              <div className="accordion-item">
+              <div className="accordion-item overflow-hidden border border-1 rounded">
                 <h2 className="accordion-header">
                   <button
                     className="accordion-button collapsed"
@@ -42,7 +42,7 @@ export const FAQ = () => {
                   </div>
                 </div>
               </div>
-              <div className="accordion-item">
+              <div className="accordion-item mt-3 overflow-hidden border border-1 rounded">
                 <h2 className="accordion-header">
                   <button
                     className="accordion-button collapsed"
@@ -73,7 +73,7 @@ export const FAQ = () => {
                   </div>
                 </div>
               </div>
-              <div className="accordion-item">
+              <div className="accordion-item mt-3 overflow-hidden border border-1 rounded">
                 <h2 className="accordion-header">
                   <button
                     className="accordion-button collapsed"
@@ -104,7 +104,7 @@ export const FAQ = () => {
                   </div>
                 </div>
               </div>
-              <div className="accordion-item">
+              <div className="accordion-item mt-3 overflow-hidden border border-1 rounded">
                 <h2 className="accordion-header">
                   <button
                     className="accordion-button collapsed"
@@ -135,7 +135,7 @@ export const FAQ = () => {
                   </div>
                 </div>
               </div>
-              <div className="accordion-item">
+              <div className="accordion-item mt-3 overflow-hidden border border-1 rounded">
                 <h2 className="accordion-header">
                   <button
                     className="accordion-button collapsed"

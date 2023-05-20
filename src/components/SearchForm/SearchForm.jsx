@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Container, Card, Form, Row, Col, Button } from "react-bootstrap";
+import { Container, Card, Form, Row, Col } from "react-bootstrap";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import axios from "axios";
 import CustomButton from "../CustomButton";
 
 export const SearchForm = ({
+  cardTitle = "",
   nameValue = "",
   categoryValue = "",
   minPriceValue = 0,
@@ -23,10 +23,11 @@ export const SearchForm = ({
   const navigate = useNavigate();
 
   const fetchCar = (name, category, minPrice, maxPrice, status) => {
-    console.log("e");
-    // const intMin = parseInt(minPrice);
-    // const intMax = parseInt(maxPrice);
-    if ((minPrice || maxPrice) && minPrice >= maxPrice) {
+    const intMin = parseInt(minPrice);
+    const intMax = parseInt(maxPrice);
+    console.log(intMin >= intMax);
+    console.log(typeof minPrice, typeof maxPrice);
+    if ((intMin || intMax) && intMin >= intMax) {
       alert("Harga minimum tidak boleh lebih besar dari harga maksimum");
       return;
     }
@@ -46,17 +47,16 @@ export const SearchForm = ({
     fetchCar(name, category, minPrice, maxPrice, status);
   };
 
-  const withSerchButton = true;
-
   return (
     <Container className="container-search-form py-3 position-relative mb-5 search-form">
       <Card
         className=" w-100 p-3 my-5 position-absolute start-50 translate-middle-x "
         style={{ top: "-120px", zIndex: "2" }}
       >
+        <Card.Title>{cardTitle}</Card.Title>
         <Form onSubmit={(e) => onSubmit(e)}>
           <Row className="align-items-end">
-            <Col lg={3} sm={12}>
+            <Col>
               <Form.Group>
                 <Form.Label>Nama Mobil</Form.Label>
                 <Form.Control
@@ -64,13 +64,13 @@ export const SearchForm = ({
                   defaultValue={nameValue}
                   value={name}
                   disabled={isDisabled}
-                  placeholder={`${isDisabled ? "" : "Ketik nama / tipe mobil"}`}
+                  placeholder={`${isDisabled ? `${nameValue}` : "Ketik nama / tipe mobil"}`}
                   className="search-input"
                   onChange={(e) => setName(e.target.value)}
                 ></Form.Control>
               </Form.Group>
             </Col>
-            <Col lg={2} sm={12}>
+            <Col>
               <Form.Group>
                 <Form.Label>Kategori</Form.Label>
                 <Form.Select
@@ -80,7 +80,7 @@ export const SearchForm = ({
                   onChange={(e) => setCategory(e.target.value)}
                 >
                   <option value="">
-                    {`${isDisabled ? "" : "Pilih kategori"}`}
+                    {`${isDisabled ? `${categoryValue}` : "Pilih kategori"}`}
                   </option>
                   <option value="small">2 - 4 orang</option>
                   <option value="medium">4 - 6 orang</option>
@@ -88,12 +88,12 @@ export const SearchForm = ({
                 </Form.Select>
               </Form.Group>
             </Col>
-            <Col lg={3} sm={12}>
+            <Col>
               <Form.Group>
                 <Form.Label>Harga</Form.Label>
                 <div className="d-flex align-items-center">
                   <Form.Control
-                    type="text"
+                    type="number"
                     defaultValue={minPriceValue}
                     value={minPrice}
                     disabled={isDisabled}
@@ -103,7 +103,7 @@ export const SearchForm = ({
                   ></Form.Control>
                   -
                   <Form.Control
-                    type="text"
+                    type="number"
                     defaultValue={maxPriceValue}
                     value={maxPrice}
                     disabled={isDisabled}
@@ -133,7 +133,7 @@ export const SearchForm = ({
                 </Form.Select> */}
               </Form.Group>
             </Col>
-            <Col lg={2} sm={12}>
+            <Col>
               <Form.Group>
                 <Form.Label>Status</Form.Label>
                 <Form.Select
@@ -143,22 +143,33 @@ export const SearchForm = ({
                   disabled={isDisabled}
                 >
                   <option value="">{`${
-                    isDisabled ? "" : "Pilih status"
+                    isDisabled ? `${statusValue}` : "Pilih status"
                   }`}</option>
                   <option value={true}>Disewa</option>
                   <option value={false}>Tersedia</option>
                 </Form.Select>
               </Form.Group>
             </Col>
-            <Col lg={2} sm={12}>
-              {buttonType === "edit" ? (
-                <CustomButton text="Edit" variant="edit" type="submit" />
-              ) : <withSerchButton /> ? (
-                <CustomButton text="Cari Mobil" type="submit" />
-              ) : (
-                <></>
-              )}
-            </Col>
+            {!isDisabled && (
+              <Col lg={2} sm={12}>
+                {buttonType === "edit" ? (
+                  <CustomButton
+                    text="Edit"
+                    variant="edit"
+                    type="submit"
+                    buttonSearch={true}
+                  />
+                ) : <withSerchButton /> ? (
+                  <CustomButton
+                    text="Cari Mobil"
+                    type="submit"
+                    buttonSearch={true}
+                  />
+                ) : (
+                  <></>
+                )}
+              </Col>
+            )}
           </Row>
         </Form>
       </Card>

@@ -4,6 +4,7 @@ const BUTON_VARIANT = {
   edit: "outline-primary",
 };
 const CustomButton = ({
+  buttonSearch = false,
   text,
   type = "button",
   variant = "base",
@@ -11,7 +12,12 @@ const CustomButton = ({
   onClick = () => {},
 }) => {
   return isShow ? (
-    <Button type={type} variant={BUTON_VARIANT[variant]} onClick={onClick}>
+    <Button
+      type={type}
+      variant={BUTON_VARIANT[variant]}
+      onClick={onClick}
+      className={!buttonSearch ? "" : "w-100"}
+    >
       {text}
     </Button>
   ) : (

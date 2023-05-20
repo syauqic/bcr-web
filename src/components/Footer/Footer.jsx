@@ -1,6 +1,6 @@
 export const Footer = () => {
   return (
-    <section className="mb-3" id="footer">
+    <section className="mb-3 pt-5" id="footer">
       <div className="container">
         <div className="d-flex flex-column flex-lg-row justify-content-between align-items-start gap-3">
           <div className="fw-bold">
