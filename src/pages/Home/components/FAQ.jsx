@@ -4,9 +4,12 @@ export const FAQ = () => {
       <div className="container">
         <div className="row pb-2">
           <div className="col-lg-6 col-sm-12">
-            <div className="text-center text-lg-start">
-              <h2>Frequently Asked Questions</h2>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+            <div className="text-center text-lg-start fw-bold">
+              <h3 className="fw-bold">Frequently Asked Questions</h3>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing
+                <p>elit.</p>
+              </p>
             </div>
           </div>
           <div className="col-lg-6 col-sm-12">
@@ -14,7 +17,7 @@ export const FAQ = () => {
               <div className="accordion-item overflow-hidden border border-1 rounded">
                 <h2 className="accordion-header">
                   <button
-                    className="accordion-button collapsed"
+                    className="accordion-button collapsed fw-bold"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseOne"
@@ -45,7 +48,7 @@ export const FAQ = () => {
               <div className="accordion-item mt-3 overflow-hidden border border-1 rounded">
                 <h2 className="accordion-header">
                   <button
-                    className="accordion-button collapsed"
+                    className="accordion-button collapsed fw-bold"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseTwo"
@@ -76,7 +79,7 @@ export const FAQ = () => {
               <div className="accordion-item mt-3 overflow-hidden border border-1 rounded">
                 <h2 className="accordion-header">
                   <button
-                    className="accordion-button collapsed"
+                    className="accordion-button collapsed fw-bold"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseThree"
@@ -107,7 +110,7 @@ export const FAQ = () => {
               <div className="accordion-item mt-3 overflow-hidden border border-1 rounded">
                 <h2 className="accordion-header">
                   <button
-                    className="accordion-button collapsed"
+                    className="accordion-button collapsed fw-bold"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseFour"
@@ -138,7 +141,7 @@ export const FAQ = () => {
               <div className="accordion-item mt-3 overflow-hidden border border-1 rounded">
                 <h2 className="accordion-header">
                   <button
-                    className="accordion-button collapsed"
+                    className="accordion-button collapsed fw-bold"
                     type="button"
                     data-bs-toggle="collapse"
                     data-bs-target="#collapseFive"

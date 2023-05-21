@@ -83,7 +83,7 @@ const DetailCar = () => {
           </Col>
           <Col className="col-4">
             <Card>
-              <Card.Img src={car.image}></Card.Img>
+              <Card.Img className="p-3" src={car.image}></Card.Img>
               <Card.Body>
                 <Card.Title>{car.name}</Card.Title>
                 <Card.Title>{car.category}</Card.Title>

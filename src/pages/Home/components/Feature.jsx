@@ -11,8 +11,8 @@ export const Feature = () => {
               />
             </div>
           </div>
-          <div className="col-sm-12 col-lg-6">
-            <h1>Best Car Rental for any kind of trip in (Lokasimu)!</h1>
+          <div className="col-sm-12 col-lg-6 fw-bold">
+            <h2 className="fw-bold">Best Car Rental for any kind of trip in (Lokasimu)!</h2>
             <p>
               Sewa mobil di (Lokasimu) bersama Binar Car Rental jaminan harga
               lebih murah dibandingkan yang lain, kondisi mobil baru, serta

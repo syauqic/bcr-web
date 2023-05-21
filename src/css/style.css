@@ -13,8 +13,9 @@ body {
   background-color: var(--hero-bg);
 }
 
-#card-testimonial {
+.card-testimonial {
   background-color: var(--hero-bg);
+  width: 70%;
 }
 
 .navbar {
@@ -72,5 +73,9 @@ body {
     bottom: 0;
     right: 0;
     width: auto;
+  }
+
+  .card-testimonial {
+    width: 100%;
   }
 }

@@ -8,11 +8,12 @@ export const Navigation = () => {
         style={{ zIndex: "3", backgroundColor: "rgba(0,0,0,0)" }}
       >
         <div className="container">
-          <Link to={"/"}>
-            <a className="navbar-brand" href="">
+          <a className="navbar-brand" href="">
+            <Link to="/">
               <span className="logo" />
-            </a>
-          </Link>
+            </Link>
+          </a>
+
           <button
             className="navbar-toggler"
             type="button"
@@ -32,6 +33,7 @@ export const Navigation = () => {
               <li className="nav-item">
                 <a
                   className="nav-link"
+                  style={{ color: "#000000" }}
                   aria-current="page"
                   href="/#feature"
                 >
@@ -39,17 +41,29 @@ export const Navigation = () => {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/#why-us">
+                <a
+                  className="nav-link"
+                  href="/#why-us"
+                  style={{ color: "#000000" }}
+                >
                   Why Us
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#testimonial">
+                <a
+                  className="nav-link"
+                  href="#testimonial"
+                  style={{ color: "#000000" }}
+                >
                   Testimonial
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#faq">
+                <a
+                  className="nav-link"
+                  href="#faq"
+                  style={{ color: "#000000" }}
+                >
                   FAQ
                 </a>
               </li>

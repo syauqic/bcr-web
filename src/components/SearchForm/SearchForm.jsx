@@ -18,7 +18,6 @@ export const SearchForm = ({
   // Ini case untuk ada harga min dan max nya
   const [minPrice, setMinPrice] = useState(minPriceValue);
   const [maxPrice, setMaxPrice] = useState(maxPriceValue);
-  // const [rangePrice, setRangePrice] = useState("");
   const [status, setStatus] = useState("");
   const navigate = useNavigate();
 

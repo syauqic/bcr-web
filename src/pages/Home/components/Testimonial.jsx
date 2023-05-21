@@ -4,12 +4,10 @@ export const Testimonial = () => {
   return (
     <section className="mb-4" id="testimonial">
       <div className="container">
-        <div className="text-center">
-          <h1>Testimonial</h1>
+        <div className="text-center fw-bold">
+          <h2 className="fw-bold">Testimonial</h2>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat
-            eius dignissimos similique nostrum animi laudantium ex saepe autem,
-            laboriosam excepturi?
+            Berbagai macam review positif dari para pelanggan kami
           </p>
         </div>
         <div
@@ -20,13 +18,13 @@ export const Testimonial = () => {
           <div className="carousel-inner">
             <div className="carousel-item active">
               <div className="row">
-                <div className="col-sm-12 ">
-                  <div className="card p-5" id="card-testimonial">
+                <div className="col-sm-12 d-flex justify-content-center">
+                  <div className="card-testimonial card p-5">
                     <div className="d-flex flex-lg-row flex-sm-column justify-content-center align-items-center">
-                      <div className="col-lg-4 text-center">
+                      <div className="col-lg-4  text-center">
                         <img src="./assets/img/img_photo.png" />
                       </div>
-                      <div className="col-lg-8 pb-2">
+                      <div className="col-lg-8 col-sm-12 pb-2">
                         <img src="./assets/img/Star 1.png" />
                         <img src="./assets/img/Star 1.png" />
                         <img src="./assets/img/Star 1.png" />
@@ -48,13 +46,13 @@ export const Testimonial = () => {
             </div>
             <div className="carousel-item">
               <div className="row ">
-                <div className="col-sm-12 ">
-                  <div className="card p-5" id="card-testimonial">
+                <div className="col-sm-12 d-flex justify-content-center">
+                  <div className="card-testimonial card p-5" style={{ width: "70%" }} id="card-testimonial">
                     <div className="d-flex flex-lg-row flex-sm-column justify-content-center align-items-center">
-                      <div className="col-lg-4 text-center">
+                      <div className="col-lg-4 col-sm-12 text-center">
                         <img src="./assets/img/img_photo (1).png" />
                       </div>
-                      <div className="col-lg-8 pb-2">
+                      <div className="col-lg-8 col-sm-12 pb-2">
                         <img src="./assets/img/Star 1.png" />
                         <img src="./assets/img/Star 1.png" />
                         <img src="./assets/img/Star 1.png" />
@@ -76,13 +74,13 @@ export const Testimonial = () => {
             </div>
             <div className="carousel-item">
               <div className="row ">
-                <div className="col-sm-12 ">
-                  <div className="card p-5" id="card-testimonial">
+                <div className="col-sm-12 d-flex justify-content-center">
+                  <div className="card-testimonial card p-5" style={{ width: "70%" }} id="card-testimonial">
                     <div className="d-flex flex-lg-row flex-sm-column justify-content-center align-items-center">
-                      <div className="col-lg-4 text-center">
+                      <div className="col-lg-4 col-sm-12 text-center">
                         <img src="./assets/img/img_photo.png" />
                       </div>
-                      <div className="col-lg-8 pb-2">
+                      <div className="col-lg-8 col-sm-12 pb-2">
                         <img src="./assets/img/Star 1.png" />
                         <img src="./assets/img/Star 1.png" />
                         <img src="./assets/img/Star 1.png" />
