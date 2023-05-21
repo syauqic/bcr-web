@@ -1,6 +1,6 @@
 export const Feature = () => {
   return (
-    <section className="mb-4" id="feature">
+    <section className="mb-5" id="feature">
       <div className="container">
         <div className="row">
           <div className="col-sm-12 col-lg-6">

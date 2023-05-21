@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container, Card, Form, Row, Col } from "react-bootstrap";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CustomButton from "../CustomButton";
 
 export const SearchForm = ({
@@ -63,7 +63,9 @@ export const SearchForm = ({
                   defaultValue={nameValue}
                   value={name}
                   disabled={isDisabled}
-                  placeholder={`${isDisabled ? `${nameValue}` : "Ketik nama / tipe mobil"}`}
+                  placeholder={`${
+                    isDisabled ? `${nameValue}` : "Ketik nama / tipe mobil"
+                  }`}
                   className="search-input"
                   onChange={(e) => setName(e.target.value)}
                 ></Form.Control>
@@ -111,25 +113,6 @@ export const SearchForm = ({
                     onChange={(e) => setMaxPrice(e.target.value)}
                   ></Form.Control>
                 </div>
-
-                {/* Ini form desain awal */}
-                {/* <Form.Select
-                  defaultValue={priceValue}
-                  className="search-input"
-                  disabled={isDisabled}
-                  onChange={(e) => setPrice(e.target.value)}
-                >
-                  <option value="">{`${
-                    isDisabled ? "" : "Pilih harga"
-                  }`}</option>
-                  {PRICE.map((item) => {
-                    return (
-                      <option key={item.id} id={item.id} value={item.value}>
-                        {item.value}
-                      </option>
-                    );
-                  })}
-                </Form.Select> */}
               </Form.Group>
             </Col>
             <Col>

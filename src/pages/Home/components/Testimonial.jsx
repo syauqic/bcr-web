@@ -19,7 +19,7 @@ export const Testimonial = () => {
             <div className="carousel-item active">
               <div className="row">
                 <div className="col-sm-12 d-flex justify-content-center">
-                  <div className="card-testimonial card p-5">
+                  <div className="card-testimonial card p-5" style={{ width: "70%" }}>
                     <div className="d-flex flex-lg-row flex-sm-column justify-content-center align-items-center">
                       <div className="col-lg-4  text-center">
                         <img src="./assets/img/img_photo.png" />
@@ -47,7 +47,7 @@ export const Testimonial = () => {
             <div className="carousel-item">
               <div className="row ">
                 <div className="col-sm-12 d-flex justify-content-center">
-                  <div className="card-testimonial card p-5" style={{ width: "70%" }} id="card-testimonial">
+                  <div className="card-testimonial card p-5" style={{ width: "70%" }}>
                     <div className="d-flex flex-lg-row flex-sm-column justify-content-center align-items-center">
                       <div className="col-lg-4 col-sm-12 text-center">
                         <img src="./assets/img/img_photo (1).png" />
@@ -75,7 +75,7 @@ export const Testimonial = () => {
             <div className="carousel-item">
               <div className="row ">
                 <div className="col-sm-12 d-flex justify-content-center">
-                  <div className="card-testimonial card p-5" style={{ width: "70%" }} id="card-testimonial">
+                  <div className="card-testimonial card p-5" style={{ width: "70%" }}>
                     <div className="d-flex flex-lg-row flex-sm-column justify-content-center align-items-center">
                       <div className="col-lg-4 col-sm-12 text-center">
                         <img src="./assets/img/img_photo.png" />
