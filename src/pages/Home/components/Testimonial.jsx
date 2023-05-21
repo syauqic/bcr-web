@@ -1,3 +1,5 @@
+import { Button } from "react-bootstrap";
+
 export const Testimonial = () => {
   return (
     <section className="mb-4" id="testimonial">
@@ -15,13 +17,13 @@ export const Testimonial = () => {
           id="carouselExampleRide"
           data-bs-ride="true"
         >
-          <div className="carousel-inner" style={{ width: "75%" }}>
+          <div className="carousel-inner">
             <div className="carousel-item active">
               <div className="row">
-                <div className="col-sm-12">
-                  <div className="card p-5 " id="card-testimonial">
-                    <div className="d-flex flex-column justify-content-center">
-                      {/* <div className="col-lg-4 text-center pt-3">
+                <div className="col-sm-12 ">
+                  <div className="card p-5" id="card-testimonial">
+                    <div className="d-flex flex-lg-row flex-sm-column justify-content-center align-items-center">
+                      <div className="col-lg-4 text-center">
                         <img src="./assets/img/img_photo.png" />
                       </div>
                       <div className="col-lg-8 pb-2">
@@ -38,20 +40,6 @@ export const Testimonial = () => {
                           do eiusmod”
                         </div>
                         <div>John Dee 32, Bromo</div>
-                      </div> */}
-                      <div className="text-center">Photo</div>
-                      <div className="text-center">stars</div>
-                      <div className="my-2">
-                        <p className="fw-bold">
-                          "Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Id dolorem totam consequuntur, molestias
-                          consectetur laudantium, molestiae, magnam facilis amet
-                          quos veniam ipsam. Fugit repellat delectus magnam enim
-                          totam eos consequatur."
-                        </p>
-                      </div>
-                      <div>
-                        <span>John Dee 32, Bromo</span>
                       </div>
                     </div>
                   </div>
@@ -59,23 +47,27 @@ export const Testimonial = () => {
               </div>
             </div>
             <div className="carousel-item">
-              <div className="row">
-                <div className="col-sm-12">
-                  <div className="card p-5">
-                    <div className="d-flex flex-column justify-content-center">
-                      <div className="text-center">Photo</div>
-                      <div className="text-center">stars</div>
-                      <div className="my-2">
-                        <p className="fw-bold">
-                          "Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Id dolorem totam consequuntur, molestias
-                          consectetur laudantium, molestiae, magnam facilis amet
-                          quos veniam ipsam. Fugit repellat delectus magnam enim
-                          totam eos consequatur."
-                        </p>
+              <div className="row ">
+                <div className="col-sm-12 ">
+                  <div className="card p-5" id="card-testimonial">
+                    <div className="d-flex flex-lg-row flex-sm-column justify-content-center align-items-center">
+                      <div className="col-lg-4 text-center">
+                        <img src="./assets/img/img_photo (1).png" />
                       </div>
-                      <div>
-                        <span>John Dee 32, Bromo</span>
+                      <div className="col-lg-8 pb-2">
+                        <img src="./assets/img/Star 1.png" />
+                        <img src="./assets/img/Star 1.png" />
+                        <img src="./assets/img/Star 1.png" />
+                        <img src="./assets/img/Star 1.png" />
+                        <img src="./assets/img/Star 1.png" />
+                        <div className="pb-2 pt-2 fw-bold">
+                          “Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod lorem ipsum dolor sit amet,
+                          consectetur adipiscing elit, sed do eiusmod lorem
+                          ipsum dolor sit amet, consectetur adipiscing elit, sed
+                          do eiusmod”
+                        </div>
+                        <div>John Dee 32, Bromo</div>
                       </div>
                     </div>
                   </div>
@@ -83,23 +75,27 @@ export const Testimonial = () => {
               </div>
             </div>
             <div className="carousel-item">
-              <div className="row">
-                <div className="col-sm-12">
-                  <div className="card p-5">
-                    <div className="d-flex flex-column justify-content-center">
-                      <div className="text-center">Photo</div>
-                      <div className="text-center">stars</div>
-                      <div className="my-2">
-                        <p className="fw-bold">
-                          "Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Id dolorem totam consequuntur, molestias
-                          consectetur laudantium, molestiae, magnam facilis amet
-                          quos veniam ipsam. Fugit repellat delectus magnam enim
-                          totam eos consequatur."
-                        </p>
+              <div className="row ">
+                <div className="col-sm-12 ">
+                  <div className="card p-5" id="card-testimonial">
+                    <div className="d-flex flex-lg-row flex-sm-column justify-content-center align-items-center">
+                      <div className="col-lg-4 text-center">
+                        <img src="./assets/img/img_photo.png" />
                       </div>
-                      <div>
-                        <span>John Dee 32, Bromo</span>
+                      <div className="col-lg-8 pb-2">
+                        <img src="./assets/img/Star 1.png" />
+                        <img src="./assets/img/Star 1.png" />
+                        <img src="./assets/img/Star 1.png" />
+                        <img src="./assets/img/Star 1.png" />
+                        <img src="./assets/img/Star 1.png" />
+                        <div className="pb-2 pt-2 fw-bold">
+                          “Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit, sed do eiusmod lorem ipsum dolor sit amet,
+                          consectetur adipiscing elit, sed do eiusmod lorem
+                          ipsum dolor sit amet, consectetur adipiscing elit, sed
+                          do eiusmod”
+                        </div>
+                        <div>John Dee 32, Bromo</div>
                       </div>
                     </div>
                   </div>
@@ -108,20 +104,28 @@ export const Testimonial = () => {
             </div>
           </div>
           <div className="my-3 d-flex justify-content-center align-items-center gap-2">
-            <button
+            <Button
               type="button"
               data-bs-target="#carouselExampleRide"
               data-bs-slide="prev"
+              variant="none"
             >
-              Prev
-            </button>
-            <button
+              <img
+                src="./assets/img/left (1).png"
+                style={{ width: "32px", height: "32px" }}
+              />
+            </Button>
+            <Button
               type="button"
               data-bs-target="#carouselExampleRide"
               data-bs-slide="next"
+              variant="none"
             >
-              Next
-            </button>
+              <img
+                src="./assets/img/arrow-right.png"
+                style={{ width: "32px", height: "32px" }}
+              />
+            </Button>
           </div>
         </div>
       </div>
