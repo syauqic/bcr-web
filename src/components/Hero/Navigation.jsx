@@ -75,14 +75,10 @@ export const Navigation = () => {
           />
         </div>
         <div className="offcanvas-body">
-          <div className="menu">
-            <ul>
-              <li>Our Services</li>
-              <li>Why Us</li>
-              <li>Testimonial</li>
-              <li>FAQ</li>
-            </ul>
-          </div>
+          <h5 className="pb-2">Our Services</h5>
+          <h5 className="pb-2">Why Us</h5>
+          <h5 className="pb-2">Testimonial</h5>
+          <h5 className="pb-2">FAQ</h5>
         </div>
       </div>
     </>

@@ -13,6 +13,10 @@ body {
   background-color: var(--hero-bg);
 }
 
+#card-testimonial {
+  background-color: var(--hero-bg);
+}
+
 .navbar {
   --bs-bg-opacity: 0;
 }

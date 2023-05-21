@@ -11,12 +11,10 @@ export const Footer = () => {
             <div className="mb-2">081-233-334-808</div>
           </div>
           <div className="menu">
-            <ul>
-              <li>Our Services</li>
-              <li>Why Us</li>
-              <li>Testimonial</li>
-              <li>FAQ</li>
-            </ul>
+            <div className="pb-2">Our Services</div>
+            <div className="pb-2">Why Us</div>
+            <div className="pb-2">Testimonial</div>
+            <div className="pb-2">FAQ</div>
           </div>
           <div>
             <div className="fw-bold mb-2">Connect with us</div>

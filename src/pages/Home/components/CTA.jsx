@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export const CTA = () => {
   return (
-    <section className="mb-3" id="cta">
+    <section className="mb-4" id="cta">
       <div className="container">
         <div className="card" style={{ height: "25rem" }}>
           <div

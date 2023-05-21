@@ -1,13 +1,11 @@
 import { Link } from "react-router-dom";
 import CustomButton from "../CustomButton";
-import { useSearchParams } from "react-router-dom";
 import { Navigation } from "./Navigation";
 
 export const Hero = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
   return (
     <section
-      className="mb-3"
+      className="mb-5"
       id="hero"
       style={{ position: "relative", zIndex: "0" }}
     >
