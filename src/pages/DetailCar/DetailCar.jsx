@@ -1,8 +1,15 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { Row, Col, Card, Container } from "react-bootstrap";
-import { Navigation } from "../../components/Hero/Navigation";
+import { Navigation } from "../../components/Navigation";
 import { useLocation } from "react-router-dom";
 import { SearchForm } from "../../components";
-import { Footer } from "../../components/Footer/Footer";
+import { Footer } from "../../components/Footer";
+
+const CATEGORY = {
+  "small": "2 - 4 orang",
+  "medium": "4 - 6 orang",
+  "large": "6 - 8 orang",
+};
 
 const DetailCar = () => {
   const location = useLocation();
@@ -86,7 +93,10 @@ const DetailCar = () => {
               <Card.Img className="p-3" src={car.image}></Card.Img>
               <Card.Body>
                 <Card.Title>{car.name}</Card.Title>
-                <Card.Title>{car.category}</Card.Title>
+                <Card.Title style={{ color: "#8A8A8A", fontSize: "15px" }}>
+                  {/* <img src="./assets/img/icon_24hrs.png" /> */}
+                  {CATEGORY[car.category]}
+                </Card.Title>
                 <div className="d-flex justify-content-between align-items-center">
                   <Card.Title className="">Total</Card.Title>
                   <Card.Title className="">

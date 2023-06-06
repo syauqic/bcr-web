@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { Search } from "./pages";
 import { Index } from "./pages";
+import "./App.css";
 import SearchResult from "./pages/SearchResult/SearchResult";
 import DetailCar from "./pages/DetailCar/DetailCar";
 

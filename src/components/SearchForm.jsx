@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Container, Card, Form, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import CustomButton from "../CustomButton";
+import CustomButton from "./CustomButton";
 
 export const SearchForm = ({
   cardTitle = "",

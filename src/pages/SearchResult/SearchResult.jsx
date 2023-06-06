@@ -1,11 +1,11 @@
 import { Row, Col, Container } from "react-bootstrap";
-import { Navigation } from "../../components/Hero/Navigation";
+import { Navigation } from "../../components/Navigation";
 import { useSearchParams } from "react-router-dom";
 import { Backdrop, SearchForm } from "../../components";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { CarCard } from "./CarCard";
-import { Footer } from "../../components/Footer/Footer";
+import { Footer } from "../../components/Footer";
 
 const SearchResult = () => {
   const [searchParams, setSearchParams] = useSearchParams();

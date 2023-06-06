@@ -1,6 +1,6 @@
 import React from "react";
-import { Hero } from "../../components/Hero/Hero";
-import { Footer } from "../../components/Footer/Footer";
+import { Hero } from "../../components/Hero";
+import { Footer } from "../../components/Footer";
 import { Feature } from "./components/Feature";
 import { WhyUs } from "./components/WhyUs";
 import { Testimonial } from "./components/Testimonial";
