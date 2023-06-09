@@ -34,7 +34,7 @@ function UseRegister () {
             navigate("/login")
         }catch (error) {
             dispatch(registerFailure());
-            swal("Registrasi anda gagal", "Silahkan klik tombol berikut", "danger")
+            swal("Registrasi anda gagal", "Silahkan klik tombol berikut", "error")
         }
     };
 
