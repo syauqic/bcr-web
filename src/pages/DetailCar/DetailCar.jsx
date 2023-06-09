@@ -2,12 +2,12 @@
 import { useState } from "react";
 import { Row, Col, Card, Container, Button } from "react-bootstrap";
 import { Navigation } from "../../components/Navigation";
-import { useLocation, } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { SearchForm } from "../../components";
 import { Footer } from "../../components/Footer";
 import Auth from "../../components/auth/index";
-import Datepicker from "react-datepicker"
-import "react-datepicker/dist/react-datepicker.css"
+import Datepicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const CATEGORY = {
   small: "2 - 4 orang",
@@ -16,8 +16,6 @@ const CATEGORY = {
 };
 
 // eslint-disable-next-line react-hooks/rules-of-hooks
-
-
 
 const DetailCar = () => {
   const location = useLocation();
@@ -106,7 +104,6 @@ const DetailCar = () => {
               <Card>
                 <Card.Img className="p-3" src={car.image}></Card.Img>
                 <Card.Body>
-                  
                   {/* <Card.Title>{car.name}</Card.Title>
                   <Card.Title style={{ color: "#8A8A8A", fontSize: "15px" }}>
 
@@ -119,62 +116,52 @@ const DetailCar = () => {
                     </Card.Title>
                   </div> */}
                   <Container>
-                  <Row className="mb-3">
-                    {car.name}
-                  </Row>
-                  
-                  <Row className="mb-3">
-                    {CATEGORY[car.category]}
-                  </Row>
-                  <Row className="mb-3">
-                     Tentukan lama sewa mobil (max. 7 hari)
-                  </Row>
-                  <Row className="mb-3">
-              
+                    <Row className="mb-3">{car.name}</Row>
+
+                    <Row className="mb-3">{CATEGORY[car.category]}</Row>
+                    <Row className="mb-3">
+                      Tentukan lama sewa mobil (max. 7 hari)
+                    </Row>
+                    <Row className="mb-3">
                       <Datepicker
-                        dateFormat = "dd-MMMM-yyyy"
+                        dateFormat="dd-MMMM-yyyy"
                         showIcon
                         id="dateStartEnd"
-                        className ="datePicker"
+                        className="datePicker"
                         // eslint-disable-next-line react/jsx-boolean-value
-                        selectsRange= {true}
+                        selectsRange={true}
                         startDate={dateStart}
                         endDate={dateEnd}
                         onChange={(update) => {
-                            setDateRange(update);
-                          }}
+                          setDateRange(update);
+                        }}
                         minDate={dateStart ? new Date(dateStart) : new Date()}
-                    maxDate={
-                      dateStart
-                        ? new Date(
-                          new Date(dateStart).setDate(
-                            new Date(dateStart).getDate() + 6
-                          )
-                        )
-                        : null
-                    }
+                        maxDate={
+                          dateStart
+                            ? new Date(
+                                new Date(dateStart).setDate(
+                                  new Date(dateStart).getDate() + 6
+                                )
+                              )
+                            : null
+                        }
                         showDisabledMonthNavigation
                         isClearable
                         placeholderText="Pilih tanggal mulai dan tanggal akhir sewa"
-                        
-                      /> 
-                  </Row>
-                  <Row className="mb-3">
-                    <Col className="g-0 mb-3">
-                      Total
-                    </Col>
-                    <Col className="g-0 fw-bold text-end mb-3" >
-                    {formatter.format(car.price)}
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Button className="ButtonToPayment" variant="success">
+                      />
+                    </Row>
+                    <Row className="mb-3">
+                      <Col className="g-0 mb-3">Total</Col>
+                      <Col className="g-0 fw-bold text-end mb-3">
+                        {formatter.format(car.price)}
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Button className="ButtonToPayment" variant="success">
                         Lanjutkan ke Pembayaran
-                    </Button>
-                  </Row>
-                </Container>
-
-                
+                      </Button>
+                    </Row>
+                  </Container>
                 </Card.Body>
               </Card>
             </Col>
