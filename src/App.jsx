@@ -4,6 +4,7 @@ import { Search } from "./pages";
 import { Index } from "./pages";
 import SearchResult from "./pages/SearchResult/SearchResult";
 import DetailCar from "./pages/DetailCar/DetailCar";
+import Login from "./pages/Login/Login";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "/detail-car/:id",
     element: <DetailCar />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 
