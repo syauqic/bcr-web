@@ -4,6 +4,7 @@ import axios from "axios";
 
 import { registerSuccess, registerStart, registerFailure } from '../../../Redux/Register/slice';
 import { useNavigate } from "react-router-dom";
+import swal from 'sweetalert';
 
 
 function UseRegister () {
@@ -29,11 +30,11 @@ function UseRegister () {
             const response = await axios.post('https://bootcamp-rent-cars.herokuapp.com/customer/auth/register', formValues)
             
             dispatch(registerSuccess(response.data));
-            console.log("response.data> ", response.data);
+            swal("Registrasi anda berhasil", "Silahkan klik tombol berikut", "success");
             navigate("/login")
         }catch (error) {
             dispatch(registerFailure());
-           
+            swal("Registrasi anda gagal", "Silahkan klik tombol berikut", "danger")
         }
     };
 

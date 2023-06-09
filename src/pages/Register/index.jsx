@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
-import BCR83 from "../../assets/img/Group 83.png"
+import BCR83 from "../../assets/img/Group 83.png";
 import LogoBCR from "../../assets/img/logo2.svg";
-// import swal from 'sweetalert';
+import Close from "../../assets/img/close.svg";
 import { Link } from "react-router-dom";
 import UseRegister from "./hooks/useRegister";
 import NoAuth from "../../components/noauth";
@@ -18,12 +18,6 @@ const  { loading,formValues,setFormValues, handleSubmit } = UseRegister();
             <div>
                 <Row>
                     <Col className="col-lg-6">
-                        <div className="position-relative align-items-center justify-content-center">
-                            {/* { loading ? (
-                                swal("Anda Berhasil Untuk Registrasi!", "Silahkan Klik Tombol Berikut", "success")
-                                
-                                ) : ("") } */}
-                        </div>
                         <Container style={{minHeight:'100vh'}} className="d-flex justify-content-center align-items-center">
                             <Form 
                             style={{
@@ -31,8 +25,9 @@ const  { loading,formValues,setFormValues, handleSubmit } = UseRegister();
                             }}
                             onSubmit={handleSubmit}
                             >
-                                <div className="mb-3">
+                                <div className="mb-3 d-flex justify-content-between">
                                     <img src={LogoBCR} alt=""></img>
+                                    <img className="d-lg-none d-sm-flex" src={Close} alt=""/>
                                 </div>
                                 <h3 className="mb-3">Sign Up</h3>
                                 <div className="mb-3">
