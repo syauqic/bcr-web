@@ -1,3 +1,6 @@
+import React from "react";
+import { Row } from "react-bootstrap";
+
 export const Footer = () => {
   return (
     <section className="mb-3 pt-5" id="footer">
@@ -10,12 +13,34 @@ export const Footer = () => {
             <div className="mb-2">binarcarrental@gmail.com</div>
             <div className="mb-2">081-233-334-808</div>
           </div>
-          <div className="menu">
-            <div className="pb-2">Our Services</div>
-            <div className="pb-2">Why Us</div>
-            <div className="pb-2">Testimonial</div>
-            <div className="pb-2">FAQ</div>
-          </div>
+        <Row>
+              <a
+                  className="text-decoration-none text-dark" style={{marginBottom:10}}
+                  href="/#feature"
+                  >  Our Services
+              </a>
+            </Row>
+            <Row>
+              <a
+                  className="text-decoration-none text-dark" style={{marginBottom:10}}
+                  href="/#why-us"
+                  >  Why Us
+              </a>
+            </Row>
+            <Row>
+                <a
+                    className="text-decoration-none text-dark" style={{marginBottom:10}}
+                    href="#testimonial"
+                    > Testimonial
+                </a>
+            </Row>
+            <Row>
+                <a
+                    className="text-decoration-none text-dark" style={{marginBottom:10}}
+                    href="#faq"
+                    >FAQ
+                </a>
+            </Row>
           <div>
             <div className="fw-bold mb-2">Connect with us</div>
             <div className="d-flex gap-2">
