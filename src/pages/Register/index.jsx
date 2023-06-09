@@ -5,6 +5,7 @@ import LogoBCR from "../../assets/img/logo2.svg";
 // import swal from 'sweetalert';
 import { Link } from "react-router-dom";
 import UseRegister from "./hooks/useRegister";
+import NoAuth from "../../components/noauth";
 
 
 
@@ -13,7 +14,7 @@ function Register() {
 const  { loading,formValues,setFormValues, handleSubmit } = UseRegister();
 
     return (
-        <>
+        <NoAuth>
             <div>
                 <Row>
                     <Col className="col-lg-6">
@@ -100,14 +101,12 @@ const  { loading,formValues,setFormValues, handleSubmit } = UseRegister();
                         </Container>
                     </Col>
                     <Col className="col-lg-6 d-lg-flex d-sm-none">
-                        <div>
-                            <img className="w-100" src={BCR83} alt="" />
-                        </div>
+                        <img className="w-100" src={BCR83} alt="" />
                     </Col>
                 </Row>
             </div>
            
-        </>
+        </NoAuth>
         
     )
 }
