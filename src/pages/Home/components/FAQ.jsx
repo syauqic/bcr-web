@@ -1,3 +1,29 @@
+const AccordionCard = ({ title, description, target }) => {
+  return (
+    <div className="accordion-item overflow-hidden border border-1 rounded mb-3">
+      <h2 className="accordion-header">
+        <button
+          className="accordion-button collapsed fw-bold"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target={`#${target}`}
+          aria-expanded="true"
+          aria-controls={target}
+        >
+          {title}
+        </button>
+      </h2>
+      <div
+        id={target}
+        className="accordion-collapse collapse"
+        data-bs-parent="#accordionExample"
+      >
+        <div className="accordion-body">{description}</div>
+      </div>
+    </div>
+  );
+};
+
 export const FAQ = () => {
   return (
     <section className="mb-3" id="faq">
@@ -14,161 +40,66 @@ export const FAQ = () => {
           </div>
           <div className="col-lg-6 col-sm-12">
             <div className="accordion" id="accordionExample">
-              <div className="accordion-item overflow-hidden border border-1 rounded">
-                <h2 className="accordion-header">
-                  <button
-                    className="accordion-button collapsed fw-bold"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseOne"
-                    aria-expanded="true"
-                    aria-controls="collapseOne"
-                  >
-                    Apa saja syarat yang dibutuhkan?
-                  </button>
-                </h2>
-                <div
-                  id="collapseOne"
-                  className="accordion-collapse collapse"
-                  data-bs-parent="#accordionExample"
-                >
-                  <div className="accordion-body">
-                    <strong>This is the first item's acordion body.</strong>
-                    It is shown by default, until the collapse plugin adds the
-                    appropriate classes that we use to style each element. These
-                    classes control the overall appearance, as well as the
-                    showing and hiding via CSS transitions. You can modify any
-                    of this with custom CSS or overriding our default variables.
-                    It's also worth noting that just about any HTML can go
-                    within the <code>.accordion-body</code>, though the
-                    transition does limit overflow.
-                  </div>
-                </div>
-              </div>
-              <div className="accordion-item mt-3 overflow-hidden border border-1 rounded">
-                <h2 className="accordion-header">
-                  <button
-                    className="accordion-button collapsed fw-bold"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseTwo"
-                    aria-expanded="false"
-                    aria-controls="collapseTwo"
-                  >
-                    Berapa hari minimal sewa mobil lepas kunci?
-                  </button>
-                </h2>
-                <div
-                  id="collapseTwo"
-                  className="accordion-collapse collapse"
-                  data-bs-parent="#accordionExample"
-                >
-                  <div className="accordion-body">
-                    <strong>This is the second item's accordion body.</strong>
-                    It is hidden by default, until the collapse plugin adds the
-                    appropriate classes that we use to style each element. These
-                    classes control the overall appearance, as well as the
-                    showing and hiding via CSS transitions. You can modify any
-                    of this with custom CSS or overriding our default variables.
-                    It's also worth noting that just about any HTML can go
-                    within the <code>.accordion-body</code>, though the
-                    transition does limit overflow.
-                  </div>
-                </div>
-              </div>
-              <div className="accordion-item mt-3 overflow-hidden border border-1 rounded">
-                <h2 className="accordion-header">
-                  <button
-                    className="accordion-button collapsed fw-bold"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseThree"
-                    aria-expanded="false"
-                    aria-controls="collapseThree"
-                  >
-                    Berapa hari sebelumnya sabaiknya booking sewa mobil?
-                  </button>
-                </h2>
-                <div
-                  id="collapseThree"
-                  className="accordion-collapse collapse"
-                  data-bs-parent="#accordionExample"
-                >
-                  <div className="accordion-body">
-                    <strong>This is the third item's accordion body.</strong>
-                    It is hidden by default, until the collapse plugin adds the
-                    appropriate classes that we use to style each element. These
-                    classes control the overall appearance, as well as the
-                    showing and hiding via CSS transitions. You can modify any
-                    of this with custom CSS or overriding our default variables.
-                    It's also worth noting that just about any HTML can go
-                    within the <code>.accordion-body</code>, though the
-                    transition does limit overflow.
-                  </div>
-                </div>
-              </div>
-              <div className="accordion-item mt-3 overflow-hidden border border-1 rounded">
-                <h2 className="accordion-header">
-                  <button
-                    className="accordion-button collapsed fw-bold"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseFour"
-                    aria-expanded="false"
-                    aria-controls="collapseFour"
-                  >
-                    Apakah ada biaya antar-jemput?
-                  </button>
-                </h2>
-                <div
-                  id="collapseFour"
-                  className="accordion-collapse collapse"
-                  data-bs-parent="#accordionExample"
-                >
-                  <div className="accordion-body">
-                    <strong>This is the first item's acordion body.</strong>
-                    It is shown by default, until the collapse plugin adds the
-                    appropriate classes that we use to style each element. These
-                    classes control the overall appearance, as well as the
-                    showing and hiding via CSS transitions. You can modify any
-                    of this with custom CSS or overriding our default variables.
-                    It's also worth noting that just about any HTML can go
-                    within the <code>.accordion-body</code>, though the
-                    transition does limit overflow.
-                  </div>
-                </div>
-              </div>
-              <div className="accordion-item mt-3 overflow-hidden border border-1 rounded">
-                <h2 className="accordion-header">
-                  <button
-                    className="accordion-button collapsed fw-bold"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseFive"
-                    aria-expanded="false"
-                    aria-controls="collapseFive"
-                  >
-                    Bagaimana jika terjadi kecelakaan?
-                  </button>
-                </h2>
-                <div
-                  id="collapseFive"
-                  className="accordion-collapse collapse"
-                  data-bs-parent="#accordionExample"
-                >
-                  <div className="accordion-body">
-                    <strong>This is the first item's acordion body.</strong>
-                    It is shown by default, until the collapse plugin adds the
-                    appropriate classes that we use to style each element. These
-                    classes control the overall appearance, as well as the
-                    showing and hiding via CSS transitions. You can modify any
-                    of this with custom CSS or overriding our default variables.
-                    It's also worth noting that just about any HTML can go
-                    within the <code>.accordion-body</code>, though the
-                    transition does limit overflow.
-                  </div>
-                </div>
-              </div>
+              <AccordionCard
+                title="Apa saja syarat yang dibutuhkan?"
+                description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quos
+                nesciunt eligendi temporibus veniam quis odit eveniet doloremque ex
+                culpa facilis, blanditiis nisi reprehenderit modi nam nemo totam
+                ratione voluptas repudiandae illum ullam eum non! Sed distinctio
+                vero ullam et rem debitis itaque, tempore labore incidunt ea illum
+                necessitatibus? Ipsam libero corporis totam sunt, aperiam tenetur a
+                quibusdam itaque similique mollitia accusamus ex reprehenderit
+                officiis quas facere quos quam sapiente?"
+                target="collapseOne"
+              />
+              <AccordionCard
+                title="Berapa hari minimal sewa mobil lepas kunci?"
+                description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quos
+                nesciunt eligendi temporibus veniam quis odit eveniet doloremque ex
+                culpa facilis, blanditiis nisi reprehenderit modi nam nemo totam
+                ratione voluptas repudiandae illum ullam eum non! Sed distinctio
+                vero ullam et rem debitis itaque, tempore labore incidunt ea illum
+                necessitatibus? Ipsam libero corporis totam sunt, aperiam tenetur a
+                quibusdam itaque similique mollitia accusamus ex reprehenderit
+                officiis quas facere quos quam sapiente?"
+                target="collapseTwo"
+              />
+              <AccordionCard
+                title="Berapa hari sebelumnya sabaiknya booking sewa mobil?"
+                description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quos
+                nesciunt eligendi temporibus veniam quis odit eveniet doloremque ex
+                culpa facilis, blanditiis nisi reprehenderit modi nam nemo totam
+                ratione voluptas repudiandae illum ullam eum non! Sed distinctio
+                vero ullam et rem debitis itaque, tempore labore incidunt ea illum
+                necessitatibus? Ipsam libero corporis totam sunt, aperiam tenetur a
+                quibusdam itaque similique mollitia accusamus ex reprehenderit
+                officiis quas facere quos quam sapiente?"
+                target="collapseThree"
+              />
+              <AccordionCard
+                title="Apakah ada biaya antar-jemput?"
+                description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quos
+                nesciunt eligendi temporibus veniam quis odit eveniet doloremque ex
+                culpa facilis, blanditiis nisi reprehenderit modi nam nemo totam
+                ratione voluptas repudiandae illum ullam eum non! Sed distinctio
+                vero ullam et rem debitis itaque, tempore labore incidunt ea illum
+                necessitatibus? Ipsam libero corporis totam sunt, aperiam tenetur a
+                quibusdam itaque similique mollitia accusamus ex reprehenderit
+                officiis quas facere quos quam sapiente?"
+                target="collapseFour"
+              />
+              <AccordionCard
+                title="Bagaimana jika terjadi kecelakaan?"
+                description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quos
+                nesciunt eligendi temporibus veniam quis odit eveniet doloremque ex
+                culpa facilis, blanditiis nisi reprehenderit modi nam nemo totam
+                ratione voluptas repudiandae illum ullam eum non! Sed distinctio
+                vero ullam et rem debitis itaque, tempore labore incidunt ea illum
+                necessitatibus? Ipsam libero corporis totam sunt, aperiam tenetur a
+                quibusdam itaque similique mollitia accusamus ex reprehenderit
+                officiis quas facere quos quam sapiente?"
+                target="collapseFive"
+              />
             </div>
           </div>
         </div>

@@ -1,3 +1,16 @@
+/* eslint-disable jsx-a11y/alt-text */
+const ListItem = ({ title }) => {
+  return (
+    <li
+      style={{ listStyle: "none", marginBottom: "10px" }}
+      className="d-flex align-items-center"
+    >
+      <img src="./assets/img/img_check.png" />{" "}
+      <span className="ms-2">{title}</span>
+    </li>
+  );
+};
+
 export const Feature = () => {
   return (
     <section className="mb-5" id="feature">
@@ -12,7 +25,9 @@ export const Feature = () => {
             </div>
           </div>
           <div className="col-sm-12 col-lg-6 fw-bold">
-            <h2 className="fw-bold">Best Car Rental for any kind of trip in (Lokasimu)!</h2>
+            <h2 className="fw-bold">
+              Best Car Rental for any kind of trip in (Lokasimu)!
+            </h2>
             <p>
               Sewa mobil di (Lokasimu) bersama Binar Car Rental jaminan harga
               lebih murah dibandingkan yang lain, kondisi mobil baru, serta
@@ -21,24 +36,26 @@ export const Feature = () => {
             </p>
             <div className="row">
               <ul>
-                <img src="./assets/img/img_check.png" /> Sewa Mobil Dengan Supir
-                di Bali 12 Jam
-              </ul>
-              <ul>
-                <img src="./assets/img/img_check.png" /> Sewa Mobil Lepas Kunci
-                di Bali 24 Jam
-              </ul>
-              <ul>
-                <img src="./assets/img/img_check.png" /> Sewa Mobil Jangka
-                Panjang Bulanan
-              </ul>
-              <ul>
-                <img src="./assets/img/img_check.png" /> Gratis Antar-jemput
-                Mobil di Bandara
-              </ul>
-              <ul>
-                <img src="./assets/img/img_check.png" /> Layanan Airport
-                Transfer / Drop In Out
+                <ListItem
+                  title="Sewa Mobil Dengan Supir
+                di Bali 12 Jam"
+                />
+                <ListItem
+                  title="Sewa Mobil Lepas Kunci
+                di Bali 24 Jam"
+                />
+                <ListItem
+                  title="Sewa Mobil Jangka
+                Panjang Bulanan"
+                />
+                <ListItem
+                  title="Gratis Antar-jemput
+                Mobil di Bandara"
+                />
+                <ListItem
+                  title="Layanan Airport
+                Transfer / Drop In Out"
+                />
               </ul>
             </div>
           </div>
