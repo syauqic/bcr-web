@@ -43,9 +43,10 @@ function useLogin() {
       errors.password = "Password wajib di isi !!";
     } else if (values.password.length < 6) {
       errors.password = "Password harus berisikan minimal 6 karakter";
-    } else if (values.password.length > 10) {
-      errors.password = "Password hanya berisikan maksimal 10 karakter";
-    }
+    } 
+    // else if (values.password.length > 10) {
+    //   errors.password = "Password hanya berisikan maksimal 10 karakter";
+    // }
     return errors;
   };
 
@@ -75,7 +76,7 @@ function useLogin() {
       navigate("/");
     } catch (error) {
       dispatch(loginFailure());
-      swal("Registrasi anda gagal", "Email anda belum terdaftar silahkan lakukan registrasi terlebih dahulu", "error")
+      swal("Registrasi anda gagal", "Harap periksa kembali email dan password anda", "error")
     }
   };
 

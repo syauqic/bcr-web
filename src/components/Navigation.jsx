@@ -10,6 +10,7 @@ export const Navigation = () => {
 
   const handleLogout = () => {
     auth.logout();
+    navigate("/login");
 }
 
   return (
@@ -128,6 +129,34 @@ export const Navigation = () => {
           <h5 className="pb-2">Why Us</h5>
           <h5 className="pb-2">Testimonial</h5>
           <h5 className="pb-2">FAQ</h5>
+          <div className="d-flex align-items-center">
+              {
+               user && user.email ? (
+                <Button type="button" variant="danger" 
+                
+                onClick={() => handleLogout()}
+                >
+                  Logout
+                </Button>
+               ) : (
+                <>
+                  <Button type="button" variant="success" 
+                  className="d-flex me-2 justify-content-center"
+                  onClick={() => navigate('/login')}
+                  >
+                    Login
+                  </Button>
+                  <Button type="button" variant="outline-success" 
+                   className="d-flex me-3 justify-content-center"
+                  onClick={() => navigate('/register')}
+                  >
+                    Register
+                  </Button>
+                </>
+                
+               )
+              }
+        </div>
         </div>
       </div>
     </>

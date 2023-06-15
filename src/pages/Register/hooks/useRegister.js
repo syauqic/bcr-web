@@ -36,9 +36,10 @@ function UseRegister () {
       errors.password = "Password wajib di isi !!";
     } else if (values.password.length < 6) {
       errors.password = "Password harus berisikan minimal 6 karakter";
-    } else if (values.password.length > 10) {
-      errors.password = "Password hanya berisikan maksimal 10 karakter";
-    }
+    } 
+    // else if (values.password.length > 10) {
+    //   errors.password = "Password hanya berisikan maksimal 10 karakter";
+    // }
     return errors;
   };
 
