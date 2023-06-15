@@ -30,6 +30,7 @@ function useLogin() {
         formValues
       );
       dispatch(loginSuccess(response.data));
+      alert("Berhasil Login ... ");
       navigate("/");
     } catch (error) {
       dispatch(loginFailure());

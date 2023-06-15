@@ -28,6 +28,8 @@ const DetailCar = () => {
 
   const [dateRange, setDateRange] = useState([null, null]);
   const [dateStart, dateEnd] = dateRange;
+  const totaldate = dateStart - dateRange;
+  console.log(totaldate);
 
   return (
     <Auth>
@@ -125,7 +127,7 @@ const DetailCar = () => {
                     <Row className="mb-3">
                       <Datepicker
                         dateFormat="dd-MMMM-yyyy"
-                        showIcon
+                        showIcon="true"
                         id="dateStartEnd"
                         className="datePicker"
                         // eslint-disable-next-line react/jsx-boolean-value

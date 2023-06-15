@@ -9,7 +9,10 @@ function Auth(props) {
 
   useEffect(() => {
     if (!user) {
-      navigate("/login");
+      setTimeout(() => {
+        alert("Silahkan Login dulu Bangg..");
+        navigate("/login");
+      }, 2000);
     }
     setMounted(true);
   }, [user]);
