@@ -1,6 +1,17 @@
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../utils/auth";
+import { Button } from "react-bootstrap";
 
 export const Navigation = () => {
+
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.login);
+
+  const handleLogout = () => {
+    auth.logout();
+}
+
   return (
     <>
       <nav
@@ -67,6 +78,30 @@ export const Navigation = () => {
                   FAQ
                 </a>
               </li>
+              {
+               user && user.email ? (
+                <Button type="button" variant="danger" 
+                onClick={() => handleLogout()}
+                >
+                  Logout
+                </Button>
+               ) : (
+                <>
+                  <Button type="button" variant="success" 
+                  className="ms-3 me-3"
+                  onClick={() => navigate('/login')}
+                  >
+                    Login
+                  </Button>
+                  <Button type="button" variant="outline-success" 
+                  onClick={() => navigate('/register')}
+                  >
+                    Register
+                  </Button>
+                </>
+                
+               )
+              }
             </ul>
           </div>
         </div>
