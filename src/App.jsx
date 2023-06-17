@@ -7,7 +7,7 @@ import SearchResult from "./pages/SearchResult/SearchResult";
 import DetailCar from "./pages/DetailCar/DetailCar";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register";
-
+import Ticket from "./pages/E-ticket/ticket";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/ticket",
+    element: <Ticket />,
   },
   {
     path: "/register",
