@@ -2,34 +2,76 @@
 import { useState } from "react";
 import { Row, Col, Card, Container, Button } from "react-bootstrap";
 import { Navigation } from "../../components/Navigation";
-import { useLocation, } from "react-router-dom";
+import { useLocation, useNavigate,useParams} from "react-router-dom";
 import { SearchForm } from "../../components";
 import { Footer } from "../../components/Footer";
 import Auth from "../../components/auth/index";
 import Datepicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css"
-
-const CATEGORY = {
-  small: "2 - 4 orang",
-  medium: "4 - 6 orang",
-  large: "6 - 8 orang",
-};
-
-// eslint-disable-next-line react-hooks/rules-of-hooks
-
+import moment from "moment/moment";
+import axios from "axios";
+import { useEffect } from "react";
 
 
 const DetailCar = () => {
+
+  const navigate = useNavigate();
+
   const location = useLocation();
-  const { car, minPrice, maxPrice, name, category, status } = location.state;
+  const { minPrice, maxPrice, name, category, status } = location.state;
+
+  const [dateRange, setDateRange] = useState([null, null]);
+  const [dateStart, dateEnd] = dateRange;
+
+  const [detailCar, SetDetailCar] = useState({});
+  const {id} = useParams();
+  // const fetch = useRef(true);
+
+  const fetchDetailOrder = async () => {
+    try {
+      const response = await axios.get(`https://bootcamp-rent-cars.herokuapp.com/customer/car/${id}`,
+      {
+        headers: {
+        access_token: 
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY2NTI0MjUwOX0.ZTx8L1MqJ4Az8KzoeYU2S614EQPnqk6Owv03PUSnkzc"
+        }
+      }
+      );
+      // console.log('ini response', response);
+      SetDetailCar(response.data)
+    }catch(error) {
+      console.log('error', error)
+    }
+  }
+  useEffect(() => {
+      fetchDetailOrder(id);
+  }, [id]);
+
   const formatter = new Intl.NumberFormat("id-ID", {
     style: "currency",
     currency: "IDR",
     maximumFractionDigits: 0, // -> belakang koma
   });
 
-  const [dateRange, setDateRange] = useState([null, null]);
-  const [dateStart, dateEnd] = dateRange;
+  
+  const goToPembayaran = async () => {
+
+    const config = {
+        headers:{
+            access_token: 
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY2NTI0MjUwOX0.ZTx8L1MqJ4Az8KzoeYU2S614EQPnqk6Owv03PUSnkzc" 
+        }
+    }
+    const body = {
+      start_rent_at: moment(dateStart).format('YYYY-MM-DD'),
+      finish_rent_at: moment (dateEnd).format('YYYY-MM-DD'),
+      car_id: id
+    }
+    const {data} =  await axios.post("https://bootcamp-rent-cars.herokuapp.com/customer/order", body, config)
+    localStorage.setItem("detailCar",JSON.stringify(data))
+      navigate('/')
+  
+  }
 
   return (
     <Auth>
@@ -104,28 +146,44 @@ const DetailCar = () => {
             </Col>
             <Col className="col-4">
               <Card>
-                <Card.Img className="p-3" src={car.image}></Card.Img>
+                <Card.Img className="p-3" 
+                src={detailCar.image}
+                ></Card.Img>
                 <Card.Body>
                   
-                  {/* <Card.Title>{car.name}</Card.Title>
+                  <Card.Title>{detailCar.name}</Card.Title>
                   <Card.Title style={{ color: "#8A8A8A", fontSize: "15px" }}>
+                  <div>
+                    {(() => {
+                      switch (detailCar.category) {
+                        case "small":
+                          return "2-4 orang";
+                        case "medium":
+                          return "4-6 orang";
+                        case "large":
+                          return "6-8 orang";
+                        default:
+                          return "-";
+                      }
+                    })()}
+                  </div>
 
-                    {CATEGORY[car.category]}
+                    {/* {CATEGORY[car.category]} */}
                   </Card.Title>
-                  <div className="d-flex justify-content-between align-items-center">
+                  {/* <div className="d-flex justify-content-between align-items-center">
                     <Card.Title className="">Total</Card.Title>
                     <Card.Title className="">
                       {formatter.format(car.price)}
                     </Card.Title>
                   </div> */}
                   <Container>
-                  <Row className="mb-3">
+                  {/* <Row className="mb-3">
                     {car.name}
-                  </Row>
+                  </Row> */}
                   
-                  <Row className="mb-3">
+                  {/* <Row className="mb-3">
                     {CATEGORY[car.category]}
-                  </Row>
+                  </Row> */}
                   <Row className="mb-3">
                      Tentukan lama sewa mobil (max. 7 hari)
                   </Row>
@@ -164,11 +222,13 @@ const DetailCar = () => {
                       Total
                     </Col>
                     <Col className="g-0 fw-bold text-end mb-3" >
-                    {formatter.format(car.price)}
+                    {formatter.format(detailCar.price)}
                     </Col>
                   </Row>
                   <Row>
-                    <Button className="ButtonToPayment" variant="success">
+                    <Button className="ButtonToPayment" variant="success" 
+                    onClick={goToPembayaran}
+                    >
                         Lanjutkan ke Pembayaran
                     </Button>
                   </Row>
