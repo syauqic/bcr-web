@@ -7,7 +7,7 @@ import SearchResult from "./pages/SearchResult/SearchResult";
 import DetailCar from "./pages/DetailCar/DetailCar";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register";
-
+import Pembayaran from "./pages/Pembayaran/Pembayaran";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +25,10 @@ const router = createBrowserRouter([
   {
     path: "/detail-car/:id",
     element: <DetailCar />,
+  },
+  {
+    path: "/pembayaran",
+    element: <Pembayaran />,
   },
   {
     path: "/login",

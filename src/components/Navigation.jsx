@@ -5,7 +5,7 @@ export const Navigation = () => {
     <>
       <nav
         className="navbar navbar-expand-lg bg-body-tertiary"
-        style={{ zIndex: "3", backgroundColor: "rgba(0,0,0,0)" }}
+        style={{ zIndex: "3", backgroundColor: "#F1F3FF" }}
       >
         <div className="container">
           <a className="navbar-brand" href="">
@@ -98,3 +98,4 @@ export const Navigation = () => {
     </>
   );
 };
+export default Navigation;
