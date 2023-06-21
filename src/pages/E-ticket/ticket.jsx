@@ -24,7 +24,7 @@ const Ticket = () => {
                         <img src={Arrowleft} alt="back" />
                       </Link>
                     </div>
-                    <h4>ipsum</h4>
+                    <h4>Order ID:xxxxxxx</h4>
                   </div>
                   <div className="col-md-8">
                     <div className="state-payment">
