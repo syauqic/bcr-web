@@ -69,7 +69,7 @@ function UseRegister () {
             navigate("/login")
         }catch (error) {
             dispatch(registerFailure());
-            swal("Registrasi anda gagal", "Email anda sudah terdaftar", "error")
+            swal("Registrasi anda gagal", "Harap periksa kembali nama, email beserta password anda", "error")
         }
     };
 
