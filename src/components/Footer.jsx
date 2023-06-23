@@ -1,10 +1,13 @@
 import React from "react";
 import { Row } from "react-bootstrap";
 import fbIcon from "../assets/img/icon_facebook.png";
+<<<<<<< HEAD
 import TwitchIcon from "../assets/img/icon_twitch.png";
 import TwitterIcon from "../assets/img/icon_twitter.png";
 import IgIcon from "../assets/img/icon_instagram.png";
 import MailIcon from "../assets/img/icon_mail.png";
+=======
+>>>>>>> b768b5ce1ec53a56b45e6ab0ee4eb181ddb9a572
 
 export const Footer = () => {
   return (
@@ -19,6 +22,7 @@ export const Footer = () => {
             <div className="mb-2">081-233-334-808</div>
           </div>
           <div className="menu">
+<<<<<<< HEAD
             <Row>
               <a
                 className="text-decoration-none text-dark"
@@ -27,10 +31,18 @@ export const Footer = () => {
               >
                 {" "}
                 Our Services
+=======
+          <Row>
+              <a
+                  className="text-decoration-none text-dark" style={{marginBottom:10}}
+                  href="/#feature"
+                  >  Our Services
+>>>>>>> b768b5ce1ec53a56b45e6ab0ee4eb181ddb9a572
               </a>
             </Row>
             <Row>
               <a
+<<<<<<< HEAD
                 className="text-decoration-none text-dark"
                 style={{ marginBottom: 10 }}
                 href="/#why-us"
@@ -60,10 +72,34 @@ export const Footer = () => {
             </Row>
           </div>
 
+=======
+                  className="text-decoration-none text-dark" style={{marginBottom:10}}
+                  href="/#why-us"
+                  >  Why Us
+              </a>
+            </Row>
+            <Row>
+                <a
+                    className="text-decoration-none text-dark" style={{marginBottom:10}}
+                    href="#testimonial"
+                    > Testimonial
+                </a>
+            </Row>
+            <Row>
+                <a
+                    className="text-decoration-none text-dark" style={{marginBottom:10}}
+                    href="#faq"
+                    >FAQ
+                </a>
+            </Row>
+          </div>
+            
+>>>>>>> b768b5ce1ec53a56b45e6ab0ee4eb181ddb9a572
           <div>
             <div className="fw-bold mb-2">Connect with us</div>
             <div className="d-flex gap-2">
               <a href="https://web.facebook.com/binaracademy">
+<<<<<<< HEAD
                 <img src={fbIcon} alt="fbIcon"></img>
               </a>
               <a href="https://www.instagram.com/academybinar/">
@@ -77,6 +113,21 @@ export const Footer = () => {
               </a>
               <a href="https://linktr.ee/binaracademy">
                 <img src={TwitchIcon} alt="twitchIcon"></img>
+=======
+                  <img src="./assets/img/icon_facebook.png" alt="fbIcon"></img>
+              </a>
+              <a href="https://www.instagram.com/academybinar/">
+                  <img src="./assets/img/icon_instagram.png" alt="igcon"></img>
+              </a>
+              <a href="https://twitter.com/academybinar">
+                  <img src="./assets/img/icon_twitter.png" alt="twtIcon"></img>
+              </a>
+              <a href="https://linktr.ee/binaracademy">
+                  <img src="./assets/img/icon_mail.png" alt="emailIcon"></img>
+              </a>
+              <a href="https://linktr.ee/binaracademy">
+                   <img src="./assets/img/icon_twitch.png" alt="twitchIcon"></img>
+>>>>>>> b768b5ce1ec53a56b45e6ab0ee4eb181ddb9a572
               </a>
             </div>
           </div>

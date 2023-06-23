@@ -21,7 +21,10 @@
     "react-scripts": "5.0.1",
     "redux": "^4.2.1",
     "sort-by": "^1.2.0",
+<<<<<<< HEAD
     "sweetalert": "^2.1.2",
+=======
+>>>>>>> b768b5ce1ec53a56b45e6ab0ee4eb181ddb9a572
     "toolkit": "^1.5.4",
     "web-vitals": "^2.1.0"
   },

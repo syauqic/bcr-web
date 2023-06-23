@@ -30,7 +30,10 @@ function useLogin() {
         formValues
       );
       dispatch(loginSuccess(response.data));
+<<<<<<< HEAD
       alert("Berhasil Login ... ");
+=======
+>>>>>>> b768b5ce1ec53a56b45e6ab0ee4eb181ddb9a572
       navigate("/");
     } catch (error) {
       dispatch(loginFailure());

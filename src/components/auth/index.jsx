@@ -9,10 +9,14 @@ function Auth(props) {
 
   useEffect(() => {
     if (!user) {
+<<<<<<< HEAD
       setTimeout(() => {
         alert("Silahkan Login dulu Bangg..");
         navigate("/login");
       }, 2000);
+=======
+      navigate("/login");
+>>>>>>> b768b5ce1ec53a56b45e6ab0ee4eb181ddb9a572
     }
     setMounted(true);
   }, [user]);
