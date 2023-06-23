@@ -4,10 +4,9 @@ import { Search } from "./pages";
 import { Index } from "./pages";
 import "./App.css";
 import SearchResult from "./pages/SearchResult/SearchResult";
-// import DetailCar from "./pages/DetailCar/DetailCar";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register";
-import DetailCar2 from "./pages/DetailCar/DetailCar2";
+import DetailCar from "./pages/DetailCar/DetailCar";
 import Payment from "./pages/Payment";
 
 
@@ -26,7 +25,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/detail-car/:id",
-    element: <DetailCar2 />,
+    element: <DetailCar />,
   },
   {
     path: "/login",
