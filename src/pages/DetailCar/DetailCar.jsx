@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Row, Col, Card, Container, Button } from "react-bootstrap";
 import { Navigation } from "../../components/Navigation";
-import { useLocation, useNavigate, useParams} from "react-router-dom";
+import { useLocation, useNavigate,useParams} from "react-router-dom";
 import { SearchForm } from "../../components";
 import { Footer } from "../../components/Footer";
 import Auth from "../../components/auth/index";
@@ -11,8 +11,6 @@ import "react-datepicker/dist/react-datepicker.css"
 import moment from "moment/moment";
 import axios from "axios";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import useFetchGetCars from "../Login/Hooks/useFetchGetCar";
 
 
 const DetailCar = () => {
@@ -24,22 +22,42 @@ const DetailCar = () => {
   const [dateRange, setDateRange] = useState([null, null]);
   const [dateStart, dateEnd] = dateRange;
   const [rentDay, setRentDay] = useState("");
-  const tanggalSewa = new Date(dateEnd) - new Date(dateStart);
+   const tanggalSewa = new Date(dateEnd) - new Date(dateStart);
   const jumlahHariSewa = ( tanggalSewa / (1000 * 3600 * 24) ) + 1
     
-  
-  
+  const [detailCar, SetDetailCar] = useState({});
+  const {id} = useParams();
   // const fetch = useRef(true);
 
-  const {id} = useParams();
 
   
- 
-  const {handleSubmit, detailCar, SetDetailCar} = useFetchGetCars
+  const fetchGetCar = async () => {
+    try {
+      const response = await axios.get(`https://bootcamp-rent-cars.herokuapp.com/customer/car/${id}`,
+      {
+        headers: {
+        access_token: 
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY2NTI0MjUwOX0.ZTx8L1MqJ4Az8KzoeYU2S614EQPnqk6Owv03PUSnkzc"
+        }
+      }
+      );
+      console.log('ini response', response);
+      SetDetailCar(response.data)
+    }catch(error) {
+      console.log('error', error)
 
+    }
+  }
+  useEffect(() => {
+      fetchGetCar(id);
+  }, [id]);
+ 
+
+
+
+ 
   const createNewOrder = async () => {
-    
-    
+
     const config = {
         headers:{
             access_token: 
@@ -69,7 +87,6 @@ const DetailCar = () => {
     }
   }, [dateStart, dateEnd]);
 
-  
 
   const formatter = new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -218,10 +235,7 @@ const DetailCar = () => {
                     <Button className="ButtonToPayment" 
                             variant="success" 
                             onClick={createNewOrder}
-                            disabled={!rentDay}
-                            // onSubmit={handleSubmit}
-                            >
-                            
+                            disabled={!rentDay}>
                         Lanjutkan ke Pembayaran
                     </Button>
                   </Row>
