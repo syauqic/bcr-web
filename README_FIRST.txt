@@ -1,0 +1,1 @@
+Layouting mungkin tidak sesuai dengan apa yang di desain, dikarenakan saya mendesain dengan monitor yang lumayan cukup besar. Mungkin terdapat beberapa perubahan pada layouting
