@@ -85,7 +85,7 @@
     position: relative;
     margin: auto;
     text-align: center;
-    padding-top: 70px;
+    padding: 70px 0;
   }
   
   .e-ticket .ticket h3 {

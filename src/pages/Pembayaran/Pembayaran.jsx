@@ -6,17 +6,16 @@ import { FaArrowLeft } from "react-icons/fa";
 import { Navigation } from "../../components/Navigation";
 import { Stepper, Step } from "react-form-stepper";
 import MethodPembayaran from "../../components/step-pembayaran/DetailPembayaran/MethodPembayaran";
-import KonfirmasiPembayaran from "../../components/step-pembayaran/Pembayaran/Pembayaran";
+import UploadPembayaran from "../../components/step-pembayaran/Pembayaran/Upload-Pembayaran";
+import Eticket from "../E-ticket/ticket";
 const Pembayaran = () => {
   const [content, setContent] = useState(0);
   const RenderContent = () => {
     if (content === 0)
       return <MethodPembayaran onClickStepper={(step) => setContent(step)} />;
     if (content === 1)
-      return (
-        <KonfirmasiPembayaran onClickStepper={(step) => setContent(step)} />
-      );
-    if (content === 2) return <p>sadasdsad</p>;
+      return <UploadPembayaran onClickStepper={(step) => setContent(step)} />;
+    if (content === 2) return <Eticket />;
   };
   return (
     <>
@@ -26,7 +25,10 @@ const Pembayaran = () => {
           <Col>
             <Row>
               <div className="col-lg-5 mb-5">
-                <button className="fs-6 fw-bold btn-previous">
+                <button
+                  className="fs-6 fw-bold btn-previous"
+                  onClick={() => setContent(0)}
+                >
                   <FaArrowLeft className="me-3 mb-1" />
                   Pembayaran
                 </button>

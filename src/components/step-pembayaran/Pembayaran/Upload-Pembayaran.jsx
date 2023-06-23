@@ -17,13 +17,36 @@ import {
 import CountDown from "./countdown";
 import Upload from "../UploadPembayaran/Upload";
 
-const KonfirmasiPembayaran = (props) => {
+const UploadPembayaran = (props) => {
   const { onClickStepper } = props;
   const [upload, setUpload] = useState(0);
   const RenderContentUpload = () => {
     if (upload === 0)
       return <Konfirmasi onClickUpload={(step) => setUpload(step)} />;
     if (upload === 1) return <Upload />;
+  };
+
+  const [filePreview, setFilePreview] = useState();
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const selectedFiles = e.dataTransfer.files;
+    setFilePreview(selectedFiles[0]);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  const handleChangeFile = (e) => {
+    const selectedFiles = e.target.files;
+    setFilePreview(selectedFiles[0]);
+    e.target.value = "";
+  };
+
+  const handleRemovePreview = (e) => {
+    setFilePreview("");
+    e.target.value = "";
   };
 
   function Konfirmasi(props) {
@@ -41,7 +64,14 @@ const KonfirmasiPembayaran = (props) => {
   function Upload() {
     return (
       <Card className="p-3 mt-3">
-        <p className="fw-bold">Konfirmasi Pembayaran</p>
+        <div className="d-flex justify-content-between">
+          <div>
+            <p className="fw-bold">Konfirmasi Pembayaran</p>
+          </div>
+          <div>
+            <CountDown duration={10 * 60 * 1000} />
+          </div>
+        </div>
         <p>
           Terima kasih telah melakukan konfirmasi pembayaran. Pembayaranmu akan
           segera kami cek tunggu kurang lebih 10 menit untuk mendapatkan
@@ -52,6 +82,48 @@ const KonfirmasiPembayaran = (props) => {
           Untuk membantu kami lebih cepat melakukan pengecekan. Kamu bisa upload
           bukti bayarmu
         </p>
+        <div
+          draggable
+          className="wrapper_file-uploader"
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+        >
+          <label
+            htmlFor="upload"
+            className="label_file-uploader d-flex justify-content-center align-items-center"
+          >
+            {filePreview ? (
+              <div style={{ width: "100%" }}>
+                <img
+                  src={URL.createObjectURL(filePreview)}
+                  alt="img-preview"
+                  className="d-block"
+                  style={{ width: "100%" }}
+                />
+                <div>
+                  <Button
+                    type="button"
+                    variant="danger"
+                    onClick={handleRemovePreview}
+                    className="d-block"
+                    style={{ width: "100%" }}
+                  >
+                    remove
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              <span>Upload or Drag file here</span>
+            )}
+            <input
+              type="file"
+              name="upload"
+              id="upload"
+              accept=".png, .jpg, .jpeg"
+              onChange={handleChangeFile}
+            />
+          </label>
+        </div>
         <Button className="w-100 btn-success" onClick={() => onClickStepper(2)}>
           Upload
         </Button>
@@ -224,4 +296,4 @@ const KonfirmasiPembayaran = (props) => {
     </>
   );
 };
-export default KonfirmasiPembayaran;
+export default UploadPembayaran;

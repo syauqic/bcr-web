@@ -7,11 +7,8 @@ import SearchResult from "./pages/SearchResult/SearchResult";
 import DetailCar from "./pages/DetailCar/DetailCar";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register";
-<<<<<<< HEAD
 import Pembayaran from "./pages/Pembayaran/Pembayaran";
-=======
 import Ticket from "./pages/E-ticket/ticket";
->>>>>>> 7472b44b53e03acc6eae740cab25fbc578045ec0
 
 const router = createBrowserRouter([
   {

@@ -150,13 +150,19 @@ const MethodPembayaran = (props) => {
                 </div>
               </div>
             </Card.Body>
-            <Button
-              className="w-100 btn-success"
-              type="submit"
-              onClick={() => onClickStepper(1)}
-            >
-              Bayar
-            </Button>
+            {selected ? (
+              <Button
+                className="w-100 btn-success"
+                type="submit"
+                onClick={() => onClickStepper(1)}
+              >
+                Bayar
+              </Button>
+            ) : (
+              <Button className="w-100 btn-success" type="submit" disabled>
+                Bayar
+              </Button>
+            )}
           </Card>
         </div>
       </Row>

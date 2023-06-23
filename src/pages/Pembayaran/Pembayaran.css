@@ -1,5 +1,5 @@
 .payment {
-    height: 250px;
+    height: 270px;
       background: 
       #F1F3FF;
       padding-top: 100px;
@@ -57,6 +57,23 @@
     }
     .StepperContainer-0-2-1 {
       padding-top: 0px !important;
+      width: 400px;
+  }
+  #RFS-StepButton.active,
+  #RFS-StepButton.completed{
+    background-color: darkblue;
+  }
+  #RFS-StepButton.active span,
+  #RFS-StepButton.completed span
+  {
+   color: #fff;
+  }
+  #RFS-StepButton{
+    background-color: #fff;
+    border: 1px solid darkblue;
+  } 
+  #RFS-StepButton span{
+    color: #000;
   }
   
     
