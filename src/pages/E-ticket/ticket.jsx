@@ -1,11 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Arrowleft from "../../assets/img/arrow-left.svg";
-import Rect from "../../assets/img/rect.svg";
 import Succes from "../../assets/img/success.svg";
 import Download from "../../assets/img/download.svg";
 import "./ticket.css";
-import { Footer } from "../../components/Footer";
 
 const Ticket = () => {
   return (
