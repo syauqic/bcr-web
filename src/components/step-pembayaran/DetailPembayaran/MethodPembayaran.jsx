@@ -3,17 +3,48 @@ import { FiUsers } from "react-icons/fi";
 import { FaAngleUp, FaAngleDown } from "react-icons/fa";
 import { Row, Button, Container, Card, ListGroup } from "react-bootstrap";
 import Check from "../../../assets/img/check.svg";
+import axios from "axios";
+import moment from "moment";
 
 const MethodPembayaran = (props) => {
   const { onClickStepper } = props;
   const [show, setShow] = useState(true);
   const [selected, setSelected] = useState();
-
+  const [datapembayaran, setdata] = useState();
+  const [day, setDay] = useState({});
+  const id = "5398";
+  const GetData = async () => {
+    try {
+      const config = {
+        headers: {
+          access_token:
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY4ODM4NDM1OX0.DNHof1eKs7m_lSZLbdAaocHMD8c6HVB-T_pj39iDJ4o",
+        },
+      };
+      const response = await axios.get(
+        `https://api-car-rental.binaracademy.org/customer/order/${id}`,
+        config
+      );
+      setdata(response.data);
+      setDay(response.data);
+    } catch {
+      console.log("err");
+    }
+  };
   const selectClick = (index) => {
     setSelected(index);
   };
+  const startDate = moment(day.start_rent_at);
+  const endDate = moment(day.finish_rent_at);
 
-  return (
+  const diffDay = endDate.diff(startDate, "days");
+  console.log(diffDay);
+  useEffect(() => {
+    GetData();
+  }, []);
+  console.log(datapembayaran);
+
+  return datapembayaran && datapembayaran.data !== 0 ? (
     <Container>
       <Row className="mt-3">
         <div className="col-lg-7">
@@ -102,7 +133,7 @@ const MethodPembayaran = (props) => {
         <div className="col-lg-5">
           <Card className="p-3">
             <Card.Body>
-              <p className="fw-bold">Innova</p>
+              <p className="fw-bold"> {datapembayaran.Car.name}</p>
               <p className="disable">
                 <FiUsers className="mb-1 me-2" />6 - 8 orang
               </p>
@@ -122,12 +153,16 @@ const MethodPembayaran = (props) => {
                     <FaAngleDown className="mt-1 ms-2" />
                   )}
                 </button>
-                <p className="fw-bold">Rp 3.500.000</p>
+                <p className="fw-bold">
+                  Rp. {datapembayaran.Car.price * diffDay}
+                </p>
               </div>
               <div className="collapse" id="collapseExample">
                 <h6 className="fw-bold ">Harga</h6>
                 <div className="total1 text-indent">
-                  <li>Sewa Mobil Rp.500.000 x 7 Hari</li>
+                  <li>
+                    Sewa Mobil Rp.{datapembayaran.Car.price} x {diffDay} Hari
+                  </li>
                   <span>Rp 3.500.000</span>
                 </div>
                 <h6 className="fw-bold mt-4 ">Biaya Lainnya</h6>
@@ -146,7 +181,10 @@ const MethodPembayaran = (props) => {
                 </div>
                 <div className="total">
                   <p>Total</p>
-                  <p className="fw-bold">Rp 3.500.000</p>
+                  <p className="fw-bold">
+                    {" "}
+                    Rp. {datapembayaran.Car.price * diffDay}
+                  </p>
                 </div>
               </div>
             </Card.Body>
@@ -167,6 +205,8 @@ const MethodPembayaran = (props) => {
         </div>
       </Row>
     </Container>
+  ) : (
+    <></>
   );
 };
 

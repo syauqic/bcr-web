@@ -48,6 +48,7 @@ const UploadPembayaran = (props) => {
     setFilePreview("");
     e.target.value = "";
   };
+  const MetodePemabayaran = localStorage.getItem("bank");
 
   function Konfirmasi(props) {
     const { onClickUpload } = props;
@@ -156,10 +157,10 @@ const UploadPembayaran = (props) => {
                       variant="outline-dark button-tf"
                       className="disable"
                     >
-                      BCA
+                      {MetodePemabayaran}
                     </Button>
                     <div className="Pemilik">
-                      <p className="fw-bold">BCA Transfer </p>
+                      <p className="fw-bold"></p>
                       <p> a.n Binar Car Rental</p>
                     </div>
                   </div>
@@ -194,22 +195,14 @@ const UploadPembayaran = (props) => {
                 </ListGroup.Item>
               </ListGroup>
             </Card>
-          </Col>
-          <div className="col-lg-5">{RenderContentUpload()}</div>
-        </Row>
-      </Container>
-
-      <Container>
-        <Row className="mt-3">
-          <Col lg={7}>
-            <Card>
+            <Card className="p-3 mt-3">
               <Card.Title className="m-3">Intruksi Pembayaran</Card.Title>
               <Tabs
                 defaultActiveKey="home"
                 transition={false}
                 className="mb-3 justify-content-center"
               >
-                <Tab eventKey="ATM BCA" title="ATM BCA">
+                <Tab eventKey="ATM" title="ATM BCA">
                   <ul>
                     <li>Masukkan Kartu ATM, lalu PIN</li>
                     <li>
@@ -291,6 +284,7 @@ const UploadPembayaran = (props) => {
               </Tabs>
             </Card>
           </Col>
+          <div className="col-lg-5">{RenderContentUpload()}</div>
         </Row>
       </Container>
     </>
