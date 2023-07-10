@@ -4,11 +4,13 @@ import { Search } from "./pages";
 import { Index } from "./pages";
 import "./App.css";
 import SearchResult from "./pages/SearchResult/SearchResult";
-import DetailCar from "./pages/DetailCar/DetailCar";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register";
 import Pembayaran from "./pages/Pembayaran/Pembayaran";
 import Ticket from "./pages/E-ticket/ticket";
+import DetailCar from "./pages/DetailCar/DetailCar";
+
+
 
 const router = createBrowserRouter([
   {
@@ -43,6 +45,7 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
+  
 ]);
 
 function App() {
