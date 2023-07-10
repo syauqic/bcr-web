@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./payment02.css";
+import axios from "axios";
 import Copy from "../../../assets/img/fi_copy.png";
 import {
   Row,
@@ -15,18 +16,39 @@ import {
   Tab,
 } from "react-bootstrap";
 import CountDown from "./countdown";
-import Upload from "../UploadPembayaran/Upload";
 
 const UploadPembayaran = (props) => {
   const { onClickStepper } = props;
   const [upload, setUpload] = useState(0);
+  const [filePreview, setFilePreview] = useState();
   const RenderContentUpload = () => {
     if (upload === 0)
       return <Konfirmasi onClickUpload={(step) => setUpload(step)} />;
     if (upload === 1) return <Upload />;
   };
-
-  const [filePreview, setFilePreview] = useState();
+  const id = "5398";
+  const UploadBukti = async () => {
+    try {
+      const config = {
+        headers: {
+          access_token:
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY4ODM4NDM1OX0.DNHof1eKs7m_lSZLbdAaocHMD8c6HVB-T_pj39iDJ4o",
+        },
+      };
+      const formData = new FormData();
+      formData.append("slip", filePreview);
+      const response = await axios.put(
+        `https://api-car-rental.binaracademy.org/customer/order/${id}/slip`,
+        formData,
+        config
+      );
+      setTimeout(() => {
+        onClickStepper(2);
+      }, 1000);
+    } catch {
+      console.log("err");
+    }
+  };
 
   const handleDrop = (e) => {
     e.preventDefault();
@@ -125,7 +147,7 @@ const UploadPembayaran = (props) => {
             />
           </label>
         </div>
-        <Button className="w-100 btn-success" onClick={() => onClickStepper(2)}>
+        <Button className="w-100 btn-success" onClick={() => UploadBukti()}>
           Upload
         </Button>
       </Card>
