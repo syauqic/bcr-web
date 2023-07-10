@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import BCR83 from "../../assets/img/Group 83.png";
 import LogoBCR from "../../assets/img/logo2.svg";
 import Close from "../../assets/img/close.svg";
@@ -11,7 +11,12 @@ import NoAuth from "../../components/noauth";
 
 function Register() {
 
-const  { loading,formValues,setFormValues, handleSubmit } = UseRegister();
+const  { loading,
+    formValues,
+    setFormValues, 
+    handleSubmit,
+    formErrors,
+    } = UseRegister();
 
     return (
         <NoAuth>
@@ -44,6 +49,7 @@ const  { loading,formValues,setFormValues, handleSubmit } = UseRegister();
                                     }}
                                     value={formValues.name ?? ""}
                                     />
+                                    <p className="text-danger">{formErrors.name}</p>
                                 </div>
                                 <div className="mb-3">
                                     <Form.Label htmlFor="email">Email</Form.Label>
@@ -59,6 +65,7 @@ const  { loading,formValues,setFormValues, handleSubmit } = UseRegister();
                                     }}
                                     value={formValues.email ?? ""}
                                     />
+                                    <p className="text-danger">{formErrors.email}</p>
                                 </div>
                                 <div className="mb-3">
                                     <Form.Label htmlFor="password">Password</Form.Label>
@@ -75,7 +82,15 @@ const  { loading,formValues,setFormValues, handleSubmit } = UseRegister();
                                     }}
                                     value={formValues.password ?? ""}
                                     />
-                                </div>
+                                    {
+                                        formErrors.password ? (
+                                            <p className="text-danger">{formErrors.password}</p>
+                                            
+                                        ) : (
+                                            <p>Password minimal 6 karakter !!</p>
+                                        )
+                                    }
+                                                        </div>
                                 <Button
                                 type="submit"
                                 variant="primary"
@@ -89,7 +104,7 @@ const  { loading,formValues,setFormValues, handleSubmit } = UseRegister();
                                 <div>
                                     <p>
                                         Alread have an account?
-                                        <Link to="/">  Sign in here</Link>
+                                        <Link to="/login">  Sign in here</Link>
                                     </p>
                                 </div>
                             </Form>

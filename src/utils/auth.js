@@ -1,4 +1,6 @@
+
 function auth() {
+  
   const setAuth = (dataUser) => {
     localStorage.setItem("user", JSON.stringify(dataUser));
   };
@@ -12,7 +14,8 @@ function auth() {
   };
   const logout = () => {
     localStorage.clear();
-    window.location.reload();
+    // window.location.reload();
+    window.location.href = ("/");
   };
   return {
     setAuth,

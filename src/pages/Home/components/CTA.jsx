@@ -1,6 +1,11 @@
+import { Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export const CTA = () => {
+
+const { user } = useSelector((state) => state.login)
+
   return (
     <section className="mb-5" id="cta">
       <div className="container">
@@ -17,11 +22,20 @@ export const CTA = () => {
               </p>
             </p>
             <div>
-              <Link to="/search">
+              {
+                user && user.email ? (
+                  <Link to="/search">
                 <button type="button" className="btn btn-success">
                   Mulai Sewa Mobil
                 </button>
               </Link>
+                ) : (
+                  <Button type="button" variant="secondary" disable>
+                   Mulai Sewa Mobil 
+                  </Button>
+                )
+              }
+              
             </div>
           </div>
         </div>
