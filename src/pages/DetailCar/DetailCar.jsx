@@ -2,79 +2,71 @@
 import { useState } from "react";
 import { Row, Col, Card, Container, Button } from "react-bootstrap";
 import { Navigation } from "../../components/Navigation";
-import { useLocation, useNavigate,useParams} from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { SearchForm } from "../../components";
 import { Footer } from "../../components/Footer";
 import Auth from "../../components/auth/index";
-import Datepicker from "react-datepicker"
-import "react-datepicker/dist/react-datepicker.css"
+import Datepicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import moment from "moment/moment";
 import axios from "axios";
 import { useEffect } from "react";
-
+import auth from "../../utils/auth";
 
 const DetailCar = () => {
-
   const navigate = useNavigate();
-
+  const token = auth.getToken();
   const location = useLocation();
   const { minPrice, maxPrice, name, category, status } = location.state;
   const [dateRange, setDateRange] = useState([null, null]);
   const [dateStart, dateEnd] = dateRange;
   const [rentDay, setRentDay] = useState("");
-   const tanggalSewa = new Date(dateEnd) - new Date(dateStart);
-  const jumlahHariSewa = ( tanggalSewa / (1000 * 3600 * 24) ) + 1
-    
+  const tanggalSewa = new Date(dateEnd) - new Date(dateStart);
+  const jumlahHariSewa = tanggalSewa / (1000 * 3600 * 24) + 1;
+
   const [detailCar, SetDetailCar] = useState({});
-  const {id} = useParams();
+  const { id } = useParams();
   // const fetch = useRef(true);
 
-
-  
   const fetchGetCar = async () => {
     try {
-      const response = await axios.get(`https://bootcamp-rent-cars.herokuapp.com/customer/car/${id}`,
-      {
-        headers: {
-        access_token: 
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY2NTI0MjUwOX0.ZTx8L1MqJ4Az8KzoeYU2S614EQPnqk6Owv03PUSnkzc"
+      const response = await axios.get(
+        `https://api-car-rental.binaracademy.org/customer/car/${id}`,
+        {
+          headers: {
+            access_token: token,
+          },
         }
-      }
       );
-      console.log('ini response', response);
-      SetDetailCar(response.data)
-    }catch(error) {
-      console.log('error', error)
-
+      console.log("ini response", response);
+      SetDetailCar(response.data);
+    } catch (error) {
+      console.log("error", error);
     }
-  }
+  };
   useEffect(() => {
-      fetchGetCar(id);
+    fetchGetCar(id);
   }, [id]);
- 
 
-
-
- 
   const createNewOrder = async () => {
-
     const config = {
-        headers:{
-            access_token: 
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY2NTI0MjUwOX0.ZTx8L1MqJ4Az8KzoeYU2S614EQPnqk6Owv03PUSnkzc" 
-        }
-    }
+      headers: {
+        access_token: token,
+      },
+    };
     const body = {
-      start_rent_at: moment(dateStart).format('YYYY-MM-DD'),
-      finish_rent_at: moment (dateEnd).format('YYYY-MM-DD'),
-      car_id: id
-    } 
-    const {data} =  await axios.post("https://bootcamp-rent-cars.herokuapp.com/customer/order", body, config);
-    localStorage.setItem("detailCar",JSON.stringify(data));
-      navigate('/pembayaran') ;
-   
-      
-  }
+      start_rent_at: moment(dateStart).format("YYYY-MM-DD"),
+      finish_rent_at: moment(dateEnd).format("YYYY-MM-DD"),
+      car_id: id,
+    };
+    const { data } = await axios.post(
+      "https://api-car-rental.binaracademy.org/customer/order",
+      body,
+      config
+    );
+    localStorage.setItem("detailCar", JSON.stringify(data));
+    navigate(`/pembayaran/${data.id}`);
+  };
 
   useEffect(() => {
     let day = 0;
@@ -86,7 +78,6 @@ const DetailCar = () => {
       setRentDay(0);
     }
   }, [dateStart, dateEnd]);
-
 
   const formatter = new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -167,35 +158,31 @@ const DetailCar = () => {
             </Col>
             <Col className="col-4">
               <Card>
-                <Card.Img className="p-3" 
-                src={detailCar.image}
-                ></Card.Img>
+                <Card.Img className="p-3" src={detailCar.image}></Card.Img>
                 <Card.Body>
-                  
                   <Card.Title>{detailCar.name}</Card.Title>
                   <Card.Title style={{ color: "#8A8A8A", fontSize: "15px" }}>
-                  <div>
-                    {(() => {
-                      switch (detailCar.category) {
-                        case "small":
-                          return "2-4 orang";
-                        case "medium":
-                          return "4-6 orang";
-                        case "large":
-                          return "6-8 orang";
-                        default:
-                          return "-";
-                      }
-                    })()}
-                  </div>
+                    <div>
+                      {(() => {
+                        switch (detailCar.category) {
+                          case "small":
+                            return "2-4 orang";
+                          case "medium":
+                            return "4-6 orang";
+                          case "large":
+                            return "6-8 orang";
+                          default:
+                            return "-";
+                        }
+                      })()}
+                    </div>
                   </Card.Title>
-                
+
                   <Container>
-                  <Row className="mb-3">
-                     Tentukan lama sewa mobil (max. 7 hari)
-                  </Row>
-                  <Row className="mb-3">
-              
+                    <Row className="mb-3">
+                      Tentukan lama sewa mobil (max. 7 hari)
+                    </Row>
+                    <Row className="mb-3">
                       <Datepicker
                         dateFormat="dd-MMMM-yyyy"
                         showIcon
@@ -209,33 +196,33 @@ const DetailCar = () => {
                           setDateRange(update);
                         }}
                         minDate={dateStart ? new Date(dateStart) : new Date()}
-                        maxDate={dateStart
-                        ? new Date(
-                          new Date(dateStart).setDate(
-                            new Date(dateStart).getDate() + 6
-                          )
-                        )
-                        : null
-                    }
+                        maxDate={
+                          dateStart
+                            ? new Date(
+                                new Date(dateStart).setDate(
+                                  new Date(dateStart).getDate() + 6
+                                )
+                              )
+                            : null
+                        }
                         showDisabledMonthNavigation
                         isClearable
                         placeholderText="Pilih tanggal mulai dan tanggal akhir sewa"
-                        
-                      /> 
-                  </Row>
-                  <Row className="mb-3">
-                    <Col className="g-0 mb-3">
-                      Total
-                    </Col>
-                    <Col className="g-0 fw-bold text-end mb-3" >
-                    {formatter.format(detailCar.price)}
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Button className="ButtonToPayment" 
-                            variant="success" 
-                            onClick={createNewOrder}
-                            disabled={!rentDay}>
+                      />
+                    </Row>
+                    <Row className="mb-3">
+                      <Col className="g-0 mb-3">Total</Col>
+                      <Col className="g-0 fw-bold text-end mb-3">
+                        {formatter.format(detailCar.price)}
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Button
+                        className="ButtonToPayment"
+                        variant="success"
+                        onClick={createNewOrder}
+                        disabled={!rentDay}
+                      >
                         Lanjutkan ke Pembayaran
                       </Button>
                     </Row>

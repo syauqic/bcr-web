@@ -1,6 +1,10 @@
 import React from "react";
 import { Row } from "react-bootstrap";
 import fbIcon from "../assets/img/icon_facebook.png";
+import igIcon from "../assets/img/icon_instagram.png";
+import twitterIcon from "../assets/img/icon_twitter.png";
+import twitchIcon from "../assets/img/icon_twitch.png";
+import emailIcon from "../assets/img/icon_mail.png";
 
 export const Footer = () => {
   return (
@@ -60,19 +64,19 @@ export const Footer = () => {
             <div className="fw-bold mb-2">Connect with us</div>
             <div className="d-flex gap-2">
               <a href="https://web.facebook.com/binaracademy">
-                <img src="./assets/img/icon_facebook.png" alt="fbIcon"></img>
+                <img src={fbIcon} alt="fbIcon"></img>
               </a>
               <a href="https://www.instagram.com/academybinar/">
-                <img src="./assets/img/icon_instagram.png" alt="igcon"></img>
+                <img src={igIcon} alt="igcon"></img>
               </a>
               <a href="https://twitter.com/academybinar">
-                <img src="./assets/img/icon_twitter.png" alt="twtIcon"></img>
+                <img src={twitterIcon} alt="twtIcon"></img>
               </a>
               <a href="https://linktr.ee/binaracademy">
-                <img src="./assets/img/icon_mail.png" alt="emailIcon"></img>
+                <img src={emailIcon} alt="emailIcon"></img>
               </a>
               <a href="https://linktr.ee/binaracademy">
-                <img src="./assets/img/icon_twitch.png" alt="twitchIcon"></img>
+                <img src={twitchIcon} alt="twitchIcon"></img>
               </a>
             </div>
           </div>

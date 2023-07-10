@@ -16,7 +16,8 @@ import {
   Tab,
 } from "react-bootstrap";
 import CountDown from "./countdown";
-
+import auth from "../../../utils/auth";
+import { useParams } from "react-router";
 const UploadPembayaran = (props) => {
   const { onClickStepper } = props;
   const [upload, setUpload] = useState(0);
@@ -26,13 +27,13 @@ const UploadPembayaran = (props) => {
       return <Konfirmasi onClickUpload={(step) => setUpload(step)} />;
     if (upload === 1) return <Upload />;
   };
-  const id = "5398";
+  const { id } = useParams();
+  const token = auth.getToken();
   const UploadBukti = async () => {
     try {
       const config = {
         headers: {
-          access_token:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY4ODM4NDM1OX0.DNHof1eKs7m_lSZLbdAaocHMD8c6HVB-T_pj39iDJ4o",
+          access_token: token,
         },
       };
       const formData = new FormData();

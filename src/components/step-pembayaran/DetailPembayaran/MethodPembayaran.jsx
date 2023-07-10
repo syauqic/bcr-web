@@ -5,6 +5,8 @@ import { Row, Button, Container, Card, ListGroup } from "react-bootstrap";
 import Check from "../../../assets/img/check.svg";
 import axios from "axios";
 import moment from "moment";
+import { useParams } from "react-router";
+import auth from "../../../utils/auth";
 
 const MethodPembayaran = (props) => {
   const { onClickStepper } = props;
@@ -12,19 +14,25 @@ const MethodPembayaran = (props) => {
   const [selected, setSelected] = useState();
   const [datapembayaran, setdata] = useState();
   const [day, setDay] = useState({});
-  const id = "5398";
+  const { id } = useParams();
+  const category = {
+    small: "2 - 4 orang",
+    medium: "4 - 6 orang",
+    large: "6 - 8 orang",
+  };
+  const token = auth.getToken();
   const GetData = async () => {
     try {
       const config = {
         headers: {
-          access_token:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY4ODM4NDM1OX0.DNHof1eKs7m_lSZLbdAaocHMD8c6HVB-T_pj39iDJ4o",
+          access_token: token,
         },
       };
       const response = await axios.get(
         `https://api-car-rental.binaracademy.org/customer/order/${id}`,
         config
       );
+      console.log(response.data);
       setdata(response.data);
       setDay(response.data);
     } catch {
@@ -42,9 +50,8 @@ const MethodPembayaran = (props) => {
   useEffect(() => {
     GetData();
   }, []);
-  console.log(datapembayaran);
 
-  return datapembayaran && datapembayaran.data !== 0 ? (
+  return datapembayaran && datapembayaran.data !== null ? (
     <Container>
       <Row className="mt-3">
         <div className="col-lg-7">
@@ -135,7 +142,8 @@ const MethodPembayaran = (props) => {
             <Card.Body>
               <p className="fw-bold"> {datapembayaran.Car.name}</p>
               <p className="disable">
-                <FiUsers className="mb-1 me-2" />6 - 8 orang
+                <FiUsers className="mb-1 me-2" />
+                {category[datapembayaran.Car.category]}
               </p>
               <div className="total">
                 <button
@@ -163,7 +171,7 @@ const MethodPembayaran = (props) => {
                   <li>
                     Sewa Mobil Rp.{datapembayaran.Car.price} x {diffDay} Hari
                   </li>
-                  <span>Rp 3.500.000</span>
+                  <span>Rp. {datapembayaran.Car.price * diffDay}</span>
                 </div>
                 <h6 className="fw-bold mt-4 ">Biaya Lainnya</h6>
                 <div className="total1 text-indent">

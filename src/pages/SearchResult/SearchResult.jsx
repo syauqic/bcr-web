@@ -13,7 +13,7 @@ const SearchResult = () => {
 
   const fetchData = async () => {
     const { data } = await axios.get(
-      `https://bootcamp-rent-cars.herokuapp.com/customer/v2/car`,
+      `https://api-car-rental.binaracademy.org/customer/v2/car`,
       {
         params: {
           name: searchParams.get("name"),

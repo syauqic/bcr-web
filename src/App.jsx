@@ -10,8 +10,6 @@ import Pembayaran from "./pages/Pembayaran/Pembayaran";
 import Ticket from "./pages/E-ticket/ticket";
 import DetailCar from "./pages/DetailCar/DetailCar";
 
-
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,7 +28,7 @@ const router = createBrowserRouter([
     element: <DetailCar />,
   },
   {
-    path: "/pembayaran",
+    path: "/pembayaran/:id",
     element: <Pembayaran />,
   },
   {
@@ -45,7 +43,6 @@ const router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
-  
 ]);
 
 function App() {
