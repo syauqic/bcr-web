@@ -79,7 +79,7 @@ const DetailCar = () => {
                   <Card.Title>Refund, Reschedule, Overtime</Card.Title>
                   <Card.Text style={{ color: "#8A8A8A" }}>
                     <ul>
-                      <li>Tidak termasuk biaya makan sopir Rp 75.000/hari</li>
+                      <li>Tidak termasuk biaya makan sopir Rp 75.00  0/hari</li>
                       <li>
                         Jika overtime lebih dari 12 jam, akan ada tambahan biaya
                         Rp.20.000/jam
