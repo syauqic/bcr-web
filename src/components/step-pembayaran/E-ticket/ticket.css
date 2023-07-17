@@ -181,6 +181,24 @@
     padding: 10px;
     background: #EEEEEE;
   }
+  .button-download{
+    padding: 8px;
+    border: 1px solid #0D28A6;
+    border-radius: 2px;
+    background: #fff;
+}
+.icon-download {
+    margin: 0 10px;
+    stroke-width: 0.5;
+}
+.button-download a {
+    text-decoration: none;
+    color: #0D28A6;
+    font-weight: 700;
+}
+.icon-download{
+    color:#0D28A6;
+}
   
   @media (max-width:990px) {
     .e-ticket .ticket .print-ticket {

@@ -38,7 +38,6 @@ const DetailCar = () => {
           },
         }
       );
-      console.log("ini response", response);
       SetDetailCar(response.data);
     } catch (error) {
       console.log("error", error);

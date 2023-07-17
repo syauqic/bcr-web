@@ -24,6 +24,7 @@ const SearchResult = () => {
         },
       }
     );
+    console.log(data);
     setCars(data.cars);
   };
   useEffect(() => {

@@ -17,7 +17,7 @@ import {
 } from "react-bootstrap";
 import CountDown from "./countdown";
 import auth from "../../../utils/auth";
-import { useParams } from "react-router";
+
 const UploadPembayaran = (props) => {
   const { onClickStepper } = props;
   const [upload, setUpload] = useState(0);
@@ -27,7 +27,6 @@ const UploadPembayaran = (props) => {
       return <Konfirmasi onClickUpload={(step) => setUpload(step)} />;
     if (upload === 1) return <Upload />;
   };
-  const { id } = useParams();
   const token = auth.getToken();
   const UploadBukti = async () => {
     try {
@@ -39,7 +38,7 @@ const UploadPembayaran = (props) => {
       const formData = new FormData();
       formData.append("slip", filePreview);
       const response = await axios.put(
-        `https://api-car-rental.binaracademy.org/customer/order/${id}/slip`,
+        `https://api-car-rental.binaracademy.org/customer/order/${props.dataId}/slip`,
         formData,
         config
       );

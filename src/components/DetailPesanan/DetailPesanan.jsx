@@ -2,15 +2,16 @@ import axios from "axios";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { Container, Card, Col, Row } from "react-bootstrap";
-import { useParams } from "react-router";
 import auth from "../../utils/auth";
-const DetailPesanan = () => {
-  const { id } = useParams();
+const DetailPesanan = (props) => {
   const [dataMobil, setdata] = useState();
   const token = auth.getToken();
   const category = {
+    Small: "2 - 4 orang",
     small: "2 - 4 orang",
+    Medium: "4 - 6 orang",
     medium: "4 - 6 orang",
+    Large: "6 - 8 orang",
     large: "6 - 8 orang",
   };
   const GetData = async () => {
@@ -21,7 +22,7 @@ const DetailPesanan = () => {
         },
       };
       const response = await axios.get(
-        `https://api-car-rental.binaracademy.org/customer/order/${id}`,
+        `https://api-car-rental.binaracademy.org/customer/order/${props.dataId}`,
         config
       );
 

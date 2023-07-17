@@ -8,16 +8,30 @@ import { Stepper, Step } from "react-form-stepper";
 import MethodPembayaran from "../../components/step-pembayaran/DetailPembayaran/MethodPembayaran";
 import UploadPembayaran from "../../components/step-pembayaran/Pembayaran/Upload-Pembayaran";
 import Auth from "../../components/auth/index";
-import Eticket from "../E-ticket/ticket";
+import Eticket from "../../components/step-pembayaran/E-ticket/ticket";
 import DetailPesanan from "../../components/DetailPesanan/DetailPesanan";
+import FilePDF from "../../components/Pdf/FilePDF";
+import { useParams } from "react-router-dom";
 const Pembayaran = () => {
   const [content, setContent] = useState(0);
+  const { id } = useParams();
   const RenderContent = () => {
     if (content === 0)
-      return <MethodPembayaran onClickStepper={(step) => setContent(step)} />;
+      return (
+        <MethodPembayaran
+          onClickStepper={(step) => setContent(step)}
+          dataId={id}
+        />
+      );
     if (content === 1)
-      return <UploadPembayaran onClickStepper={(step) => setContent(step)} />;
-    if (content === 2) return <Eticket />;
+      return (
+        <UploadPembayaran
+          onClickStepper={(step) => setContent(step)}
+          dataId={id}
+        />
+      );
+    if (content === 2) return <Eticket dataId={id} />;
+    if (content === 3) return <FilePDF dataId={id} />;
   };
   return (
     <>
@@ -47,7 +61,7 @@ const Pembayaran = () => {
             </Col>
           </div>
         </div>
-        <DetailPesanan />
+        <DetailPesanan dataId={id} />
         {RenderContent()}
         <Footer />
       </Auth>

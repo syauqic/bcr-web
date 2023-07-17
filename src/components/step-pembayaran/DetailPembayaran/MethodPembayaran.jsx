@@ -14,10 +14,12 @@ const MethodPembayaran = (props) => {
   const [selected, setSelected] = useState();
   const [datapembayaran, setdata] = useState();
   const [day, setDay] = useState({});
-  const { id } = useParams();
   const category = {
+    Small: "2 - 4 orang",
     small: "2 - 4 orang",
+    Medium: "4 - 6 orang",
     medium: "4 - 6 orang",
+    Large: "6 - 8 orang",
     large: "6 - 8 orang",
   };
   const token = auth.getToken();
@@ -29,7 +31,7 @@ const MethodPembayaran = (props) => {
         },
       };
       const response = await axios.get(
-        `https://api-car-rental.binaracademy.org/customer/order/${id}`,
+        `https://api-car-rental.binaracademy.org/customer/order/${props.dataId}`,
         config
       );
       console.log(response.data);
