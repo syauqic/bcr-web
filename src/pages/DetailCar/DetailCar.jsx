@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/alt-text */
+  /* eslint-disable jsx-a11y/alt-text */
 import { useState } from "react";
 import { Row, Col, Card, Container, Button } from "react-bootstrap";
 import { Navigation } from "../../components/Navigation";
@@ -52,7 +52,7 @@ const DetailCar = () => {
       fetchGetCar(id);
   }, [id]);
  
-
+  
 
 
  
